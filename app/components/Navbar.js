@@ -86,7 +86,9 @@ function Navbar() {
                 </div>
                 <div
                     className={`relative flex justify-center items-center max-lg:flex-col lg:gap-4 max-sm:fixed max-sm:bottom-16 max-sm:right-0  transition max-sm:rounded-t-lg max-sm:bg-primary-color-300/90 max-sm:p-4 ${
-                        menuIsOpen ? 'translate-x-0' : 'translate-x-full'
+                        menuIsOpen
+                            ? 'mas-sm:translate-x-0'
+                            : 'mas-sm:translate-x-full'
                     }`}
                 >
                     <button className="border-opacity-100 border-2 border-ascent-color-300 sm:w-36 rounded-lg p-2 color bg-ascent-color-300/20 active:bg-ascent-color-300/40">
