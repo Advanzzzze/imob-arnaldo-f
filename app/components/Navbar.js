@@ -19,10 +19,10 @@ function Navbar() {
     }
 
     return (
-        <div className="flex justify-center items-center w-screen bg-primary-color-300 z-10 max-sm:fixed bottom-0 left-0 sm:border-t-8 sm:border-ascent-color-300 sm:border-b-white/20 sm:border-b">
+        <div className="flex justify-center items-center w-screen bg-primary-color-300 z-10 sm:border-t-8 sm:border-ascent-color-300 sm:border-b-white/20 sm:border-b">
             <div
                 id="navbar-container"
-                className="flex max-sm:w-full justify-center sm:justify-between gap-4 max-sm:h-20 h-32"
+                className="flex max-sm:w-full justify-center sm:justify-between gap-4 max-sm:h-20 h-32 max-sm:fixed max-sm:z-50 max-sm:bg-primary-color-300 bottom-0 left-0"
             >
                 <Image
                     src="/images/logo-arnaldo.svg"
@@ -86,9 +86,7 @@ function Navbar() {
                 </div>
                 <div
                     className={`relative flex justify-center items-center max-lg:flex-col lg:gap-4 max-sm:fixed max-sm:bottom-16 max-sm:right-0  transition max-sm:rounded-t-lg max-sm:bg-primary-color-300/90 max-sm:p-4 ${
-                        menuIsOpen
-                            ? 'mas-sm:translate-x-0'
-                            : 'mas-sm:translate-x-full'
+                        menuIsOpen ? 'translate-x-0' : 'max-sm:translate-x-full'
                     }`}
                 >
                     <button className="border-opacity-100 border-2 border-ascent-color-300 sm:w-36 rounded-lg p-2 color bg-ascent-color-300/20 active:bg-ascent-color-300/40">
