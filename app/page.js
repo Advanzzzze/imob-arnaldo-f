@@ -8,11 +8,9 @@ export default function Home() {
     return (
         <main>
             <div className="min-h-screen">
-                <Navbar />
                 <Hero />
                 <Section />
                 <About />
-                <Footer />
             </div>
         </main>
     )

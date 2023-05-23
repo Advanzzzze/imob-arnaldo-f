@@ -64,7 +64,7 @@ function About() {
                         <span className="text-ascent-color-300">.</span>
                     </p>
                     <a
-                        href="/"
+                        href="/quem-somos"
                         className="text-ascent-color-300 p-4 hover:text-ascent-color-200"
                     >
                         Saiba mais

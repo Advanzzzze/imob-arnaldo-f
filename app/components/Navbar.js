@@ -47,7 +47,7 @@ function Navbar() {
                         <p className="max-sm:hidden">Agendar</p>
                     </a>
                     <a
-                        href="/"
+                        href="/quem-somos"
                         className="hover:text-ascent-color-300 flex flex-col justify-center items-center gap-2 max-sm:p-4"
                     >
                         <BsFillPeopleFill className="sm:hidden" />
