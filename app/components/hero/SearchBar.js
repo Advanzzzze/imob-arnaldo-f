@@ -1,14 +1,33 @@
+'use client'
+
+import { useState } from 'react'
 import { GiMagnifyingGlass } from 'react-icons/gi'
 
 function SearchBar() {
+    const [isBuy, setIsBuy] = useState(true)
+
     return (
         <div className="flex flex-col justify-center items-center">
             <div className="flex flex-col bg-secondary-color-300/30 border border-secondary-color-200 rounded-lg">
                 <div className="flex justify-center gap-4 border-b">
-                    <button className="p-4 border-b-2 border-white">
+                    <button
+                        onClick={() => {
+                            setIsBuy(true)
+                        }}
+                        className={`p-4 border-white ${
+                            isBuy ? 'border-b-2' : 'border-b-0'
+                        }`}
+                    >
                         Comprar
                     </button>
-                    <button className="p-4 border-b-2 border-white">
+                    <button
+                        onClick={() => {
+                            setIsBuy(false)
+                        }}
+                        className={`p-4 border-white ${
+                            !isBuy ? 'border-b-2' : 'border-b-0'
+                        }`}
+                    >
                         Alugar
                     </button>
                 </div>

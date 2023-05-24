@@ -8,7 +8,7 @@ function About() {
     return (
         <div
             id="container-about"
-            className="flex flex-col items-center pt-16 gap-16"
+            className="flex flex-col items-center py-16 gap-16"
         >
             <h1 className="text-3xl font-bold">
                 CORRETORES QUE VOCÊS PODEM CONFIAR
