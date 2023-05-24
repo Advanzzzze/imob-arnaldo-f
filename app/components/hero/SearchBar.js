@@ -3,7 +3,7 @@ import { GiMagnifyingGlass } from 'react-icons/gi'
 function SearchBar() {
     return (
         <div className="flex flex-col justify-center items-center">
-            <div className="flex flex-col bg-secondary-color-300/50 border border-secondary-color-200 rounded-lg">
+            <div className="flex flex-col bg-secondary-color-300/30 border border-secondary-color-200 rounded-lg">
                 <div className="flex justify-center gap-4 border-b">
                     <button className="p-4 border-b-2 border-white">
                         Comprar
