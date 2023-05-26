@@ -74,7 +74,7 @@ function Houses() {
         <div className="flex flex-col justify-center items-center py-16 gap-12 relative">
             <div className="h-[120%] w-[200%] -z-10 bg-primary-color-200/40 absolute rotate-6"></div>
             <h2 className="text-2xl font-bold">IMÓVEIS EXCLUSIVOS</h2>
-            <div className="grid grid-cols-3 gap-4">
+            <div className="flex overflow-x-auto sm:grid sm:grid-cols-3 gap-4">
                 {houses.map((data, index) => {
                     return (
                         <HouseCard
