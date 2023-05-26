@@ -2,7 +2,7 @@ import Image from 'next/image'
 
 function Footer() {
     return (
-        <div className="relative flex justify-center items-center border-t-8 border-b-4 border-ascent-color-300">
+        <div className="relative flex justify-center items-center border-t-8 border-b-4 border-ascent-color-300 mt-16">
             <div className="relative mt-6 grid grid-cols-1 px-2 gap-4 sm:grid-cols-5">
                 <Image
                     src="/images/logo-arnaldo.svg"
