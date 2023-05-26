@@ -40,7 +40,7 @@ function Navbar() {
                         <p className="max-sm:hidden">Inicio</p>
                     </a>
                     <a
-                        href="/"
+                        href="/agendar"
                         className="hover:text-ascent-color-300 flex flex-col justify-center items-center gap-2 max-sm:p-4"
                     >
                         <BsFillBookmarkFill className="sm:hidden" />
