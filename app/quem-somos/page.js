@@ -4,8 +4,10 @@ import PeopleCard from '../components/quem-somos/PeopleCard'
 function page() {
     return (
         <div id="quemsomos-container" className="flex justify-center">
-            <div className="flex flex-col justify-center w-1/3 items-center gap-14">
-                <h1 className="font-bold text-3xl pt-16">NOSSOS CORRETORES</h1>
+            <div className="flex flex-col justify-center w-4/5 sm:w-1/3 items-center gap-14">
+                <h1 className="font-bold text-3xl pt-16 text-center">
+                    NOSSOS CORRETORES
+                </h1>
                 <p>
                     A{' '}
                     <span className="text-ascent-color-300">
