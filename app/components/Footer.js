@@ -50,7 +50,7 @@ function Footer() {
                         </a>
                     </div>
                 </div>
-                <div className="">
+                <div className="flex flex-col gap-2">
                     <h4 className="font-bold">Serviços</h4>
                     <div className="flex flex-col gap-4">
                         <a href="/" className="hover:text-ascent-color-300">

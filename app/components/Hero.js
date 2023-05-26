@@ -12,7 +12,7 @@ function Hero() {
                     fill
                 />
             </div>
-            <p className="text-4xl">
+            <p className="text-4xl text-center">
                 Oque <span className="font-semibold">você</span> está buscando?
             </p>
             <SearchBar />

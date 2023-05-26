@@ -10,9 +10,12 @@ import {
 import { RiFacebookCircleLine } from 'react-icons/ri'
 import { RxHamburgerMenu } from 'react-icons/rx'
 import { BsFillBookmarkFill, BsFillPeopleFill } from 'react-icons/bs'
+import { usePathname } from 'next/navigation'
 
 function Navbar() {
     const [menuIsOpen, setMenuIsOpen] = useState(false)
+
+    const url = usePathname().split('/')
 
     function handleClick() {
         setMenuIsOpen(!menuIsOpen)
@@ -34,34 +37,44 @@ function Navbar() {
                 <div className="flex justify-evenly w-full gap-4 items-center text-center max-sm:text-2xl">
                     <a
                         href="/"
-                        className="hover:text-ascent-color-300 flex flex-col justify-center items-center gap-2 max-sm:p-4"
+                        className={`hover:text-ascent-color-300 flex flex-col justify-center items-center gap-2 max-sm:p-4 ${
+                            url[1] == '' && 'text-ascent-color-300'
+                        }`}
                     >
                         <AiFillHome className="sm:hidden" />
                         <p className="max-sm:hidden">Inicio</p>
                     </a>
                     <a
                         href="/"
-                        className="hover:text-ascent-color-300 flex flex-col justify-center items-center gap-2 max-sm:p-4"
+                        className={`hover:text-ascent-color-300 flex flex-col justify-center items-center gap-2 max-sm:p-4 ${
+                            url[1] == '' && 'text-ascent-color-300'
+                        }`}
                     >
                         <BsFillBookmarkFill className="sm:hidden" />
                         <p className="max-sm:hidden">Agendar</p>
                     </a>
                     <a
                         href="/quem-somos"
-                        className="hover:text-ascent-color-300 flex flex-col justify-center items-center gap-2 max-sm:p-4"
+                        className={`hover:text-ascent-color-300 flex flex-col justify-center items-center gap-2 max-sm:p-4 ${
+                            url[1] == 'quem-somos' && 'text-ascent-color-300'
+                        }`}
                     >
                         <BsFillPeopleFill className="sm:hidden" />
                         <p className="max-sm:hidden">Quem somos</p>
                     </a>
                     <a
                         href="/"
-                        className="hover:text-ascent-color-300 flex flex-col justify-center items-center gap-2 max-sm:hidden"
+                        className={`hover:text-ascent-color-300 flex flex-col justify-center items-center gap-2 max-sm:hidden max-sm:p-4 ${
+                            url[1] == '' && 'text-ascent-color-300'
+                        }`}
                     >
                         <p>Parceiros</p>
                     </a>
                     <a
                         href="/"
-                        className="hover:text-ascent-color-300 flex flex-col justify-center items-center gap-2 max-sm:hidden"
+                        className={`hover:text-ascent-color-300 flex flex-col justify-center items-center gap-2 max-sm:hidden max-sm:p-4 ${
+                            url[1] == '' && 'text-ascent-color-300'
+                        }`}
                     >
                         <p>Contato</p>
                     </a>
