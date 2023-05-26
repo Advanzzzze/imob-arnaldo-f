@@ -1,10 +1,13 @@
 'use client'
 
+import UseWindowSize from '@/app/hooks/UseWindowSize'
 import { useState } from 'react'
 import { GiMagnifyingGlass } from 'react-icons/gi'
 
 function SearchBar() {
     const [isBuy, setIsBuy] = useState(true)
+
+    const size = UseWindowSize()
 
     return (
         <div className="flex flex-col justify-center items-center">
@@ -36,8 +39,12 @@ function SearchBar() {
                         <div className="relative flex items-center bg-white rounded-lg overflow-hidden">
                             <input
                                 className="p-2 relative right-0 placeholder:translate-x-8 
-                                placeholder:transition focus:placeholder:translate-x-0 peer w-[40vw] text-black transition"
-                                placeholder="Busque pela região ou empreendimento"
+                                placeholder:transition focus:placeholder:translate-x-0 peer w-[35vw] text-black transition"
+                                placeholder={
+                                    size.width > 600
+                                        ? 'Busque pela região ou empreendimento'
+                                        : 'Buscar'
+                                }
                             />
                             <GiMagnifyingGlass
                                 className="absolute left-2 peer-focus:-translate-x-[150%] text-black transition"

@@ -4,7 +4,7 @@ function Section() {
     return (
         <div
             id="container-section"
-            className="flex flex-col justify-center items-center p-10 py-16"
+            className="flex flex-col justify-center items-center text-center p-10 py-16"
         >
             <h1 className="text-3xl pb-8 font-bold">
                 Seu novo lar está esperando por você
@@ -23,7 +23,7 @@ function Section() {
                         <span className="text-secondary-color-300">sonho</span>!{' '}
                     </p>
                 </div>
-                <div className="flex flex-col gap-4 items-center justify-center w-2/5 bg-secondary-color-200/20 backdrop-blur-sm rounded-lg p-4">
+                <div className="flex flex-col gap-4 items-center justify-center w-full sm:w-2/5 bg-secondary-color-200/20 backdrop-blur-sm rounded-lg p-4">
                     <p className="text-xl">
                         <span className="text-ascent-color-300">
                             Arnaldo Ferreira Imóveis:

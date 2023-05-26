@@ -8,24 +8,24 @@ function About() {
     return (
         <div
             id="container-about"
-            className="flex flex-col items-center py-16 gap-16"
+            className="flex flex-col items-center text-center py-16 gap-16"
         >
             <h1 className="text-3xl font-bold">
                 CORRETORES QUE VOCÊS PODEM CONFIAR
                 <span className="text-ascent-color-300">.</span>
             </h1>
-            <div className="flex grid-cols-4 gap-14">
+            <div className="sm:flex grid grid-cols-2 gap-2 justify-center items-center p-2 sm:gap-14">
                 <div className="flex flex-col items-center">
                     <TbClipboardText size={48} />
-                    <p>CADASTRO GRATUITO SEM TAXAS EXTRAS</p>
+                    <p>Cadastro Gratuito Sem Taxas Extras</p>
                 </div>
                 <div className="flex flex-col items-center">
                     <BiCoinStack size={48} className="text-ascent-color-300" />
-                    <p>AVALIAÇÃO DE IMÓVEL</p>
+                    <p>Avaliação de Imóveis</p>
                 </div>
                 <div className="flex flex-col items-center">
                     <TfiMapAlt size={48} />
-                    <p>AMPLA COBERTURA</p>
+                    <p>Ampla Cobertura</p>
                 </div>
                 <div className="flex flex-col items-center">
                     <BiCheckboxChecked
@@ -35,7 +35,7 @@ function About() {
                     <p>Garantia de Satisfação</p>
                 </div>
             </div>
-            <div className="flex justify-center items-center gap-12">
+            <div className="flex max-sm:flex-col justify-center items-center gap-12">
                 <div className="text-center">
                     <Image
                         src="/images/img-arnaldo.svg"
@@ -46,7 +46,7 @@ function About() {
                     <p className="font-bold">ARNALDO FERREIRA</p>
                     <p>CRECI: 223086 / CNAI:39267</p>
                 </div>
-                <div className="w-1/3 flex flex-col items-center gap-8">
+                <div className="w-4/5 sm:w-1/3 flex flex-col items-center gap-8">
                     <p>
                         <span className="text-ascent-color-300">
                             Arnaldo Ferreira
