@@ -14,6 +14,7 @@ export default function RootLayout({ children }) {
     return (
         <html lang="en">
             <body
+                id="home"
                 className={`bg-primary-color-300 text-white ${open_Sans.className}`}
             >
                 <Navbar />

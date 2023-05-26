@@ -55,7 +55,7 @@ function page() {
                     <h1 className="font-bold text-3xl mb-10 text-center">
                         Nossa equipe
                     </h1>
-                    <div className="flex gap-8">
+                    <div className="flex overflow-x-auto snap-x snap-mandatory max-sm:w-screen px-4 gap-4">
                         <PeopleCard
                             name={'Arnaldo Ferreira'}
                             image={'/images/img-arnaldo.svg'}
@@ -76,7 +76,7 @@ function page() {
                 </div>
                 <a
                     href="/"
-                    className="text-white bg-ascent-color-300/50 rounded-lg p-2"
+                    className="text-white border border-ascent-color-300 bg-ascent-color-300/20 active:bg-ascent-color-300/30 rounded-lg p-2"
                 >
                     Agendar agora!
                 </a>

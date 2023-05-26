@@ -9,7 +9,11 @@ import {
 } from 'react-icons/ai'
 import { RiFacebookCircleLine } from 'react-icons/ri'
 import { RxHamburgerMenu } from 'react-icons/rx'
-import { BsFillBookmarkFill, BsFillPeopleFill } from 'react-icons/bs'
+import {
+    BsFillArrowUpCircleFill,
+    BsFillBookmarkFill,
+    BsFillPeopleFill,
+} from 'react-icons/bs'
 import { usePathname } from 'next/navigation'
 
 function Navbar() {
@@ -23,9 +27,16 @@ function Navbar() {
 
     return (
         <div className="flex justify-center items-center w-screen bg-primary-color-300 z-10 sm:border-t-8 sm:border-ascent-color-300 sm:border-b-white/20 sm:border-b">
+            <a
+                href="#home"
+                className="fixed z-50 text-ascent-color-300 sm:right-8 bottom-24 sm:bottom-8 animate-bounce"
+            >
+                <BsFillArrowUpCircleFill size={20} />
+            </a>
+
             <div
                 id="navbar-container"
-                className="flex max-sm:w-full justify-center sm:justify-between gap-4 max-sm:h-20 h-32 max-sm:fixed max-sm:z-50 max-sm:bg-primary-color-300 bottom-0 left-0"
+                className="flex max-sm:w-full justify-center sm:justify-between gap-4 max-sm:h-20 h-32 max-sm:fixed max-sm:z-50 max-sm:bg-primary-color-300 max-sm:border-t border-secondary-color-300 bottom-0 left-0"
             >
                 <Image
                     src="/images/logo-arnaldo.svg"
@@ -102,7 +113,7 @@ function Navbar() {
                         menuIsOpen ? 'translate-x-0' : 'max-sm:translate-x-full'
                     }`}
                 >
-                    <button className="border-opacity-100 border-2 border-ascent-color-300 sm:w-36 rounded-lg p-2 color bg-ascent-color-300/20 active:bg-ascent-color-300/40">
+                    <button className="border-opacity-100 border border-ascent-color-300 sm:w-36 rounded-lg p-2 color bg-ascent-color-300/20 active:bg-ascent-color-300/30">
                         Cadastre-se
                     </button>
                     <button className="text-ascent-color-300 p-2 hover:text-white">

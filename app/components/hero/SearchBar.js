@@ -51,7 +51,7 @@ function SearchBar() {
                                 size={20}
                             />
                         </div>
-                        <button className="px-4 rounded-lg border border-ascent-color-300 bg-ascent-color-300/20 active:bg-ascent-color-300/40">
+                        <button className="px-4 rounded-lg border border-ascent-color-300 bg-ascent-color-300/20 active:bg-ascent-color-300/30">
                             Buscar
                         </button>
                         <button className="px-2">Filtros</button>
