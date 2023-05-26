@@ -22,7 +22,7 @@ function HouseCard({
     const [isLiked, setIsLiked] = useState(isLikedP)
 
     return (
-        <div className="flex flex-col items-center h-[500px] w-80 bg-neutral-500 rounded-lg overflow-hidden">
+        <div className="flex flex-col items-center h-[500px] w-80 flex-none snap-center bg-neutral-500 rounded-lg overflow-hidden">
             <Image
                 src={image}
                 width={256}
