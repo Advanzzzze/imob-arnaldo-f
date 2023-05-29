@@ -1,5 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 import Image from 'next/image'
+import Button from './Button'
 
 function Feedback() {
     return (
@@ -69,9 +70,7 @@ function Feedback() {
                     </p>
                 </div>
             </div>
-            <a href="/" className="text-ascent-color-300">
-                Ver mais
-            </a>
+            <Button variant={'a-text'}>Ver mais</Button>
         </div>
     )
 }

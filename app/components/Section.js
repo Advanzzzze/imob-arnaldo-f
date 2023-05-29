@@ -23,7 +23,7 @@ function Section() {
                         <span className="text-secondary-color-300">sonho</span>!{' '}
                     </p>
                 </div>
-                <div className="flex flex-col gap-4 items-center justify-center w-full sm:w-2/5 bg-secondary-color-200/20 backdrop-blur-sm rounded-lg p-4">
+                <div className="flex flex-col gap-4 items-center justify-center w-full md:w-2/5 bg-secondary-color-200/20 backdrop-blur-sm rounded-lg p-4">
                     <p className="text-xl">
                         <span className="text-ascent-color-300">
                             Arnaldo Ferreira Imóveis:

@@ -1,5 +1,6 @@
 import { BsArrowRightShort } from 'react-icons/bs'
 import HouseCard from './houses/HouseCard'
+import Button from './Button'
 
 function Houses() {
     const houses = [
@@ -72,10 +73,10 @@ function Houses() {
     ]
 
     return (
-        <div className="flex flex-col justify-center items-center py-16 gap-12 relative">
+        <div className="flex flex-col justify-center items-center py-16 relative">
             <div className="h-[120%] w-[200%] -z-10 bg-primary-color-200/40 absolute rotate-6"></div>
             <h2 className="text-2xl font-bold">IMÓVEIS EXCLUSIVOS</h2>
-            <div className="flex overflow-x-auto snap-x snap-mandatory px-4 max-sm:w-screen sm:grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+            <div className="flex overflow-y-visible overflow-x-auto snap-x snap-mandatory py-12 px-4 max-sm:w-screen sm:grid sm:grid-cols-2 md:grid-cols-3 gap-4">
                 {houses.map((data, index) => {
                     return (
                         <HouseCard
@@ -92,15 +93,12 @@ function Houses() {
                     )
                 })}
             </div>
-            <a
-                href="/"
-                className="px-4 py-2 rounded-lg border border-ascent-color-300 bg-ascent-color-300/20 active:bg-ascent-color-300/30"
-            >
+            <Button variant={'a-text'} onClick={'/agendar'}>
                 <div className="flex justify-center items-center gap-2">
                     <p>Ver mais</p>
                     <BsArrowRightShort size={20} />
                 </div>
-            </a>
+            </Button>
         </div>
     )
 }

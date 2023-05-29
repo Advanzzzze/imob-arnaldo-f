@@ -36,10 +36,6 @@ function Page() {
     const [width, setWidth] = useState(0)
 
     useEffect(() => {
-        console.log(
-            carrosel.current?.scrollWidth,
-            carrosel.current?.offsetWidth
-        )
         setWidth(carrosel.current?.scrollWidth - carrosel.current?.offsetWidth)
     }, [])
 

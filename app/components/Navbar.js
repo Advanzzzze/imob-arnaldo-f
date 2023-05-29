@@ -1,7 +1,7 @@
 'use client'
 
 import Image from 'next/image'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import {
     AiOutlineWhatsApp,
     AiOutlineInstagram,
@@ -15,9 +15,12 @@ import {
     BsFillPeopleFill,
 } from 'react-icons/bs'
 import { usePathname } from 'next/navigation'
+import Button from './Button'
+import { MdOpacity } from 'react-icons/md'
 
 function Navbar() {
     const [menuIsOpen, setMenuIsOpen] = useState(false)
+    const [arrowOpacity, setArrowOpacity] = useState(0)
 
     const url = usePathname().split('/')
 
@@ -25,11 +28,35 @@ function Navbar() {
         setMenuIsOpen(!menuIsOpen)
     }
 
+    function handleScroll() {
+        const position = window.pageYOffset
+        const arrowOpacityCalc = Math.floor(position / 10)
+        setArrowOpacity(arrowOpacityCalc)
+    }
+
+    useEffect(() => {
+        window.addEventListener('scroll', handleScroll, { passive: true })
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll)
+        }
+    }, [])
+
     return (
         <div className="flex justify-center items-center w-screen bg-primary-color-300 z-10 sm:border-t-8 sm:border-ascent-color-300 sm:border-b-white/20 sm:border-b">
             <a
                 href="#home"
-                className="fixed z-50 text-ascent-color-300 sm:right-8 bottom-24 sm:bottom-8 animate-bounce"
+                className={`fixed z-50 text-ascent-color-300 sm:right-8 bottom-24 sm:bottom-8 animate-bounce transition ${
+                    arrowOpacity < 100
+                        ? arrowOpacity < 75
+                            ? arrowOpacity < 50
+                                ? arrowOpacity < 25
+                                    ? 'opacity-0'
+                                    : 'opacity-25'
+                                : 'opacity-50'
+                            : 'opacity-75'
+                        : 'opacity-100'
+                }`}
             >
                 <BsFillArrowUpCircleFill size={20} />
             </a>
@@ -56,9 +83,9 @@ function Navbar() {
                         <p className="max-sm:hidden">Inicio</p>
                     </a>
                     <a
-                        href="/"
+                        href="/agendar"
                         className={`hover:text-ascent-color-300 flex flex-col justify-center items-center gap-2 max-sm:p-4 ${
-                            url[1] == '' && 'text-ascent-color-300'
+                            url[1] == 'agendar' && 'text-ascent-color-300'
                         }`}
                     >
                         <BsFillBookmarkFill className="sm:hidden" />
@@ -113,12 +140,8 @@ function Navbar() {
                         menuIsOpen ? 'translate-x-0' : 'max-sm:translate-x-full'
                     }`}
                 >
-                    <button className="border-opacity-100 border border-ascent-color-300 sm:w-36 rounded-lg p-2 color bg-ascent-color-300/20 active:bg-ascent-color-300/30">
-                        Cadastre-se
-                    </button>
-                    <button className="text-ascent-color-300 p-2 hover:text-white">
-                        Entrar
-                    </button>
+                    <Button>Cadastre-se</Button>
+                    <Button variant={'text'}>Entrar</Button>
                 </div>
             </div>
         </div>

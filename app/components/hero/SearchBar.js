@@ -1,13 +1,24 @@
 'use client'
 
 import UseWindowSize from '@/app/hooks/UseWindowSize'
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { GiMagnifyingGlass } from 'react-icons/gi'
+import Button from '../Button'
 
 function SearchBar() {
     const [isBuy, setIsBuy] = useState(true)
+    const [isInputEmpty, setIsInputEmpty] = useState(true)
+
+    const searchInput = useRef()
 
     const size = UseWindowSize()
+
+    function handleInput(value) {
+        const input = value
+
+        if (input == '') setIsInputEmpty(true)
+        else setIsInputEmpty(false)
+    }
 
     return (
         <div className="flex flex-col justify-center items-center">
@@ -18,7 +29,7 @@ function SearchBar() {
                             setIsBuy(true)
                         }}
                         className={`p-4 border-white ${
-                            isBuy ? 'border-b-2' : 'border-b-0'
+                            isBuy ? 'border-b-2' : 'border-b-0 hover:border-b'
                         }`}
                     >
                         Comprar
@@ -28,7 +39,7 @@ function SearchBar() {
                             setIsBuy(false)
                         }}
                         className={`p-4 border-white ${
-                            !isBuy ? 'border-b-2' : 'border-b-0'
+                            !isBuy ? 'border-b-2' : 'border-b-0 hover:border-b'
                         }`}
                     >
                         Alugar
@@ -38,8 +49,12 @@ function SearchBar() {
                     <div className="flex gap-4">
                         <div className="relative flex items-center bg-white rounded-lg overflow-hidden">
                             <input
+                                ref={searchInput}
                                 className="p-2 relative right-0 placeholder:translate-x-8 
-                                placeholder:transition focus:placeholder:translate-x-0 peer w-[35vw] text-black transition"
+                                placeholder:transition focus:placeholder:translate-x-0 focus:outline-none peer w-[35vw] text-black transition"
+                                onChange={() => {
+                                    handleInput(searchInput.current.value)
+                                }}
                                 placeholder={
                                     size.width > 600
                                         ? 'Busque pela região ou empreendimento'
@@ -47,14 +62,16 @@ function SearchBar() {
                                 }
                             />
                             <GiMagnifyingGlass
-                                className="absolute left-2 peer-focus:-translate-x-[150%] text-black transition"
+                                className={`absolute left-2 ${
+                                    isInputEmpty
+                                        ? 'peer-focus:-translate-x-[150%]'
+                                        : '-translate-x-[150%]'
+                                } text-black transition`}
                                 size={20}
                             />
                         </div>
-                        <button className="px-4 rounded-lg border border-ascent-color-300 bg-ascent-color-300/20 active:bg-ascent-color-300/30">
-                            Buscar
-                        </button>
-                        <button className="px-2">Filtros</button>
+                        <Button variant={'outline'}>Buscar</Button>
+                        <Button variant={'text-invert'}>Filtros</Button>
                     </div>
                     <div className="flex gap-4">
                         <div className="flex justify-center items-center gap-2">

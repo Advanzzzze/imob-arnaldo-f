@@ -3,6 +3,7 @@ import { BiCoinStack } from 'react-icons/bi'
 import { TfiMapAlt } from 'react-icons/tfi'
 import { BiCheckboxChecked } from 'react-icons/bi'
 import Image from 'next/image'
+import Button from './Button'
 
 function About() {
     return (
@@ -63,12 +64,9 @@ function About() {
                         vistorias
                         <span className="text-ascent-color-300">.</span>
                     </p>
-                    <a
-                        href="/quem-somos"
-                        className="text-ascent-color-300 p-4 hover:text-ascent-color-200"
-                    >
+                    <Button variant={'a-text'} onClick={'/quem-somos'}>
                         Saiba mais
-                    </a>
+                    </Button>{' '}
                 </div>
             </div>
         </div>
