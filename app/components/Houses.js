@@ -93,7 +93,7 @@ function Houses() {
                 })}
             </div>
             <a
-                href="/"
+                href="/agendar"
                 className="px-4 py-2 rounded-lg border border-ascent-color-300 bg-ascent-color-300/20 active:bg-ascent-color-300/30"
             >
                 <div className="flex justify-center items-center gap-2">
