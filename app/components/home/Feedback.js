@@ -5,6 +5,7 @@ import Button from '../Button'
 function Feedback() {
     return (
         <div className="flex flex-col justify-center items-center relative w-full py-16 gap-12">
+            <div className="h-[145%] w-[200%] -z-10 bg-ascent-color-300/60 absolute -rotate-6 translate-y-28"></div>
             <h1 className="font-bold text-center text-2xl">
                 OQUE NOSSOS CLIENTES ESTÃO FALANDO
             </h1>
@@ -21,12 +22,16 @@ function Feedback() {
                         <p className="text-ascent-color-300">~ Alessandra</p>
                     </div>
                     <p className="w-4/5 sm:w-1/3">
-                        " Parabéns à Arnaldo Ferreira Imóveis pela excelência e
-                        compromisso em oferecer um serviço imobiliário
-                        excepcional. Com conhecimento de mercado e atendimento
-                        personalizado, eles ajudam os clientes a encontrar seus
-                        lares dos sonhos. É uma imobiliária confiável e
-                        referência no setor. Parabéns pelo sucesso alcançado! "
+                        " Parabéns à{' '}
+                        <span className="font-bold">
+                            Arnaldo Ferreira Imóveis
+                        </span>{' '}
+                        pela excelência e compromisso em oferecer um serviço
+                        imobiliário excepcional. Com conhecimento de mercado e
+                        atendimento personalizado, eles ajudam os clientes a
+                        encontrar seus lares dos sonhos. É uma imobiliária
+                        confiável e referência no setor. Parabéns pelo sucesso
+                        alcançado! "
                     </p>
                 </div>
                 <div className="flex max-sm:flex-col flex-row-reverse justify-center gap-6 items-center">
@@ -41,12 +46,16 @@ function Feedback() {
                         <p className="text-ascent-color-300">~ João Santos</p>
                     </div>
                     <p className="w-4/5 sm:w-1/3">
-                        " Parabéns à Arnaldo Ferreira Imóveis pela excelência e
-                        compromisso em oferecer um serviço imobiliário
-                        excepcional. Com conhecimento de mercado e atendimento
-                        personalizado, eles ajudam os clientes a encontrar seus
-                        lares dos sonhos. É uma imobiliária confiável e
-                        referência no setor. Parabéns pelo sucesso alcançado! "
+                        " Parabéns à{' '}
+                        <span className="font-bold">
+                            Arnaldo Ferreira Imóveis
+                        </span>{' '}
+                        pela excelência e compromisso em oferecer um serviço
+                        imobiliário excepcional. Com conhecimento de mercado e
+                        atendimento personalizado, eles ajudam os clientes a
+                        encontrar seus lares dos sonhos. É uma imobiliária
+                        confiável e referência no setor. Parabéns pelo sucesso
+                        alcançado! "
                     </p>
                 </div>
                 <div className="flex max-sm:flex-col justify-center gap-6 items-center">
@@ -61,12 +70,16 @@ function Feedback() {
                         <p className="text-ascent-color-300">~ Ana</p>
                     </div>
                     <p className="w-4/5 sm:w-1/3">
-                        " Parabéns à Arnaldo Ferreira Imóveis pela excelência e
-                        compromisso em oferecer um serviço imobiliário
-                        excepcional. Com conhecimento de mercado e atendimento
-                        personalizado, eles ajudam os clientes a encontrar seus
-                        lares dos sonhos. É uma imobiliária confiável e
-                        referência no setor. Parabéns pelo sucesso alcançado! "
+                        " Parabéns à{' '}
+                        <span className="font-bold">
+                            Arnaldo Ferreira Imóveis
+                        </span>{' '}
+                        pela excelência e compromisso em oferecer um serviço
+                        imobiliário excepcional. Com conhecimento de mercado e
+                        atendimento personalizado, eles ajudam os clientes a
+                        encontrar seus lares dos sonhos. É uma imobiliária
+                        confiável e referência no setor. Parabéns pelo sucesso
+                        alcançado! "
                     </p>
                 </div>
             </div>

@@ -1,9 +1,12 @@
+'use client'
+
 import { TbClipboardText } from 'react-icons/tb'
 import { BiCoinStack } from 'react-icons/bi'
 import { TfiMapAlt } from 'react-icons/tfi'
 import { BiCheckboxChecked } from 'react-icons/bi'
 import Image from 'next/image'
 import Button from '../Button'
+import { motion } from 'framer-motion'
 
 function About() {
     return (
@@ -16,19 +19,19 @@ function About() {
                 <span className="text-ascent-color-300">.</span>
             </h1>
             <div className="sm:flex grid grid-cols-2 gap-2 justify-center p-2 sm:gap-14">
-                <div className="flex flex-col items-center">
+                <div className="flex flex-col items-center transition hover:scale-105 duration-200">
                     <TbClipboardText size={48} />
                     <p>Cadastro Gratuito Sem Taxas Extras</p>
                 </div>
-                <div className="flex flex-col items-center">
+                <div className="flex flex-col items-center transition hover:scale-105 duration-200">
                     <BiCoinStack size={48} className="text-ascent-color-300" />
                     <p>Avaliação de Imóveis</p>
                 </div>
-                <div className="flex flex-col items-center">
+                <div className="flex flex-col items-center transition hover:scale-105 duration-200">
                     <TfiMapAlt size={48} />
                     <p>Ampla Cobertura</p>
                 </div>
-                <div className="flex flex-col items-center">
+                <div className="flex flex-col items-center transition hover:scale-105 duration-200">
                     <BiCheckboxChecked
                         size={48}
                         className="text-ascent-color-300"

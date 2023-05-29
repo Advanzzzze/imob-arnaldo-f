@@ -2,7 +2,7 @@ import Button from '../components/Button'
 
 function page() {
     return (
-        <div className="py-12">
+        <div className="py-12 px-2">
             <div className="flex justify-center mb-8">
                 <h1 className="text-4xl font-bold text-center">Contatos</h1>
             </div>
@@ -14,15 +14,13 @@ function page() {
                         <p>ARARAQUARA/SP</p>
                     </div>
                     <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3704.7404281546437!2d-48.182380059406036!3d-21.790304899010227!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94b8f3de1c490885%3A0x93f58bfd5ec8efe2!2sAv.%20Jos%C3%A9%20Bonif%C3%A1cio%2C%20819%20-%20Centro%2C%20Araraquara%20-%20SP%2C%2014801-150!5e0!3m2!1spt-BR!2sbr!4v1685368728176!5m2!1spt-BR!2sbr"
-                        width="500"
-                        height="300"
-                        allowfullscreen=""
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3704.743158839186!2d-48.17975870920287!3d-21.79019926067796!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94b8f3de1c490885%3A0x93f58bfd5ec8efe2!2sAv.%20Jos%C3%A9%20Bonif%C3%A1cio%2C%20819%20-%20Centro%2C%20Araraquara%20-%20SP%2C%2014801-150!5e0!3m2!1spt-BR!2sbr!4v1684857382849!5m2!1spt-BR!2sbr"
+                        allowFullScreen
                         loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade"
-                        className="rounded-lg"
+                        referrerPolicy="no-referrer-when-downgrade"
+                        className="w-full h-80 rounded-lg"
                     ></iframe>
-                    <h3 className="w-96">
+                    <h3 className="sm:w-96">
                         PARA FALAR COM UM DE NOSSOS ATENDENTES LIGUE OU
                         ENVIE-NOS UM E-MAIL:
                     </h3>
