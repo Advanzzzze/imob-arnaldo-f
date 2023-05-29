@@ -4,7 +4,7 @@ function AgendarForm() {
     const inputStyle = 'p-2 text-black rounded-sm w-full'
 
     return (
-        <div className="flex flex-col gap-2 flex-none w-1/4 h-fit p-4 border border-ascent-color-300 rounded-lg">
+        <div className="flex flex-col gap-2 flex-none max-md:mx-2 md:w-1/3 h-fit p-4 border border-ascent-color-300 rounded-lg">
             <h3 className="font-bold text-2xl text-ascent-color-300">
                 Estou Interessado
             </h3>

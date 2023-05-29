@@ -10,8 +10,8 @@ import { IoBedOutline } from 'react-icons/io5'
 
 function HouseInfo({ activeInfo, setActiveInfo }) {
     return (
-        <div className="flex flex-col gap-4">
-            <div className="flex gap-4">
+        <div className="flex flex-col px-2 gap-4">
+            <div className="flex max-sm:justify-center gap-4">
                 <Button
                     className="flex gap-2"
                     variant={activeInfo != 'images' && 'outline'}
@@ -51,7 +51,7 @@ function HouseInfo({ activeInfo, setActiveInfo }) {
                 <p>Rua Arnaldo Ferreira, 123 - Araraquara SP</p>
                 <p>Status: Em construção</p>
             </div>
-            <div className="flex gap-4 py-2">
+            <div className="sm:flex grid grid-cols-2 gap-2 sm:gap-4 py-2">
                 <div className="flex flex-col items-center border border-ascent-color-300/20 rounded-lg p-2">
                     <div className="flex gap-2">
                         <CgRuler className="text-ascent-color-300" size={20} />
@@ -90,7 +90,7 @@ function HouseInfo({ activeInfo, setActiveInfo }) {
                     <p>1 a 2</p>
                 </div>
             </div>
-            <div className="flex flex-col gap-2 w-2/3">
+            <div className="flex flex-col gap-2">
                 <h3 className="font-bold text-2xl">Sobre o Imóvel</h3>
                 <p>
                     Lorem Ipsum is simply dummy text of the printing and
