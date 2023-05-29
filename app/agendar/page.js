@@ -169,27 +169,27 @@ function Page() {
                             <p className="pt-4">Preencha os campos abaixo</p>
                             <div>
                                 <form className="flex justify-center pb-4 pt-6">
-                                    <label class="block">
-                                        <span class="block text-sm font-medium">
+                                    <label className="block">
+                                        <span className="block text-sm font-medium">
                                             Seu nome:
                                         </span>
-                                        <input class="border-slate-200 placeholder-slate-400 contrast-more:border-slate-400 contrast-more:placeholder-slate-500" />
+                                        <input className="border-slate-200 placeholder-slate-400 contrast-more:border-slate-400 contrast-more:placeholder-slate-500" />
                                     </label>
                                 </form>
                                 <form className="pb-4 flex justify-center">
-                                    <label class="block">
-                                        <span class="block text-sm font-medium">
+                                    <label className="block">
+                                        <span className="block text-sm font-medium">
                                             E-mail:
                                         </span>
-                                        <input class="border-slate-200 placeholder-slate-400 contrast-more:border-slate-400 contrast-more:placeholder-slate-500" />
+                                        <input className="border-slate-200 placeholder-slate-400 contrast-more:border-slate-400 contrast-more:placeholder-slate-500" />
                                     </label>
                                 </form>
                                 <form className="pb-4 flex justify-center">
-                                    <label class="block">
-                                        <span class="block text-sm font-medium">
+                                    <label className="block">
+                                        <span className="block text-sm font-medium">
                                             Celular:
                                         </span>
-                                        <input class="border-slate-200 placeholder-slate-400 contrast-more:border-slate-400 contrast-more:placeholder-slate-500" />
+                                        <input className="border-slate-200 placeholder-slate-400 contrast-more:border-slate-400 contrast-more:placeholder-slate-500" />
                                     </label>
                                 </form>
                             </div>
