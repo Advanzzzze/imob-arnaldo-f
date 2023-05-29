@@ -58,13 +58,11 @@ function About() {
                         é corretor de imóveis e já trabalhou no 1º loteamento de
                         Exclusividade no Jd. Nova Taquaral, com mais de 140
                         lotes vendidos. Também trabalhou no Residencial Nova
-                        Colina, Zacarias -São Paulo com 165 lotes vendidos. Além
-                        disso já vendeu mais de 200 títulos do Peixe Vivo e
-                        atualmente está com a EcoVille com 4 lotes de
-                        exclusividade, mais de 50 lotes entre casas e ranchos, 6
-                        sítios, 2 fazendas vendidas. Arnaldo também se formou em
-                        Perito de Imóveis no CNAI para atuar também com laudos e
-                        vistorias
+                        Colina, Zacarias -São Paulo com 165 lotes vendidos. e
+                        atualmente está com a EcoVille , mais de 50 lotes entre
+                        casas e ranchos, 6 sítios, 2 fazendas vendidas. Arnaldo
+                        também se formou em Perito de Imóveis no CNAI para atuar
+                        também com laudos e vistorias
                         <span className="text-ascent-color-300">.</span>
                     </p>
                     <Button variant={'a-text'} onClick={'/quem-somos'}>
