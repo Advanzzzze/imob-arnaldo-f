@@ -1,12 +1,11 @@
 'use client'
 
-import { useState, useEffect, useRef } from 'react'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
-import { CgRuler } from 'react-icons/cg'
-import { FaBed, FaCarSide, FaMapMarker, FaImage } from 'react-icons/fa'
-import { MdOutlineShower } from 'react-icons/md'
-import { TfiMapAlt } from 'react-icons/tfi'
+import ImageCarousel from '../components/agendar/ImageCarousel'
+import AgendarForm from '../components/agendar/AgendarForm'
+import HouseInfo from '../components/agendar/HouseInfo'
+import { useState } from 'react'
 
 const images = [
     {
@@ -36,172 +35,54 @@ const images = [
 ]
 
 function Page() {
-    const carrosel = useRef()
-    const [width, setWidth] = useState(0)
-
-    useEffect(() => {
-        setWidth(carrosel.current?.scrollWidth - carrosel.current?.offsetWidth)
-    }, [])
+    const [activeInfo, setActiveInfo] = useState('images')
 
     return (
-        <div>
-            <motion.div
-                className="carrosel cursor-grab"
-                whileTap={{ cursor: 'grabbing' }}
-                ref={carrosel}
-            >
-                <motion.div
-                    className="inner flex gap-4 w-fit"
-                    drag="x"
-                    dragConstraints={{ right: 0, left: -width }}
-                    initial={{ x: 100 }}
-                    animate={{ x: 0 }}
-                    transition={{ duration: 0.8 }}
+        <div className="flex flex-col gap-16">
+            <div>
+                <ImageCarousel
+                    className={`h-80 overflow-y-hidden overflow-x-hidden ${
+                        activeInfo != 'images' && 'hidden'
+                    }`}
                 >
                     {images.map((data, index) => {
                         return (
                             <motion.div key={index} className="flex-none">
                                 <Image
                                     src={data.image}
-                                    width={500}
                                     height={500}
+                                    width={500}
                                     alt="teste"
                                     className="object-cover pointer-events-none"
                                 />
                             </motion.div>
                         )
                     })}
-                </motion.div>
-            </motion.div>
-            <div className="flex">
-                <div className="py-8 pl-40">
-                    <div className="flex gap-7">
-                        <div className="flex gap-2">
-                            <a
-                                className="flex bg-ascent-color-300/70 p-2 rounded-lg gap-2"
-                                href="/"
-                            >
-                                <FaImage size={25} />
-                                <p>Fotos</p>
-                            </a>
-                        </div>
-                        <div className="flex gap-2">
-                            <a
-                                className="flex bg-white/70 p-2 rounded-lg gap-2"
-                                href="/"
-                            >
-                                <TfiMapAlt size={25} />
-                                <p>Mapa</p>
-                            </a>
-                        </div>
-                        <div className="flex gap-2">
-                            <a
-                                className="flex bg-white/70 p-2 rounded-lg gap-2"
-                                href="/"
-                            >
-                                <FaMapMarker size={25} />
-                                <p>Rua</p>
-                            </a>
-                        </div>
-                    </div>
-                    <h3 className="font-bold text-2xl pt-4">
-                        Chácara em construção
-                    </h3>
-                    <h3 className="font-bold text-2xl">Araraquara - SP</h3>
-                    <p>Rua Arnaldo Ferreira, 123 - Araraquara SP</p>
-                    <div className="flex gap-16 py-8">
-                        <div className="flex flex-col">
-                            <div className="flex gap-2">
-                                <CgRuler
-                                    className="text-ascent-color-300"
-                                    size={25}
-                                />
-                                <p>Área</p>
-                            </div>
-                            <p>15 a 70m²</p>
-                        </div>
-                        <div className="flex flex-col">
-                            <div className="flex gap-2">
-                                <FaBed size={25} />
-                                <p>Dormitórios</p>
-                            </div>
-                            <p>2 a 3</p>
-                        </div>
-                        <div className="flex flex-col">
-                            <div className="flex gap-2">
-                                <MdOutlineShower
-                                    className="text-ascent-color-300"
-                                    size={25}
-                                />
-                                <p>Banheiros</p>
-                            </div>
-                            <p>1 a 2</p>
-                        </div>
-                        <div className="flex flex-col">
-                            <div className="flex gap-2">
-                                <FaCarSide size={25} />
-                                <p>Banheiros</p>
-                            </div>
-                            <p>1 a 2</p>
-                        </div>
-                    </div>
-                    <h3 className="font-bold text-2xl">Sobre o Imóvel</h3>
-                    <p className="w-1/3 pt-4">
-                        Lorem Ipsum is simply dummy text of the printing and
-                        typesetting industry. Lorem Ipsum has been the industrys
-                        standard dummy text ever since the 1500s, when an
-                        unknown printer took a galley of type and scrambled it
-                        to make a type specimen book. It has survived not only
-                        five centuries, but also the leap into electronic
-                        typesetting, remaining essentially unchanged. It was
-                        popularised in the 1960s with the release of Letraset
-                        sheets containing Lorem Ipsum passages, and more
-                        recently with desktop publishing software like Aldus
-                        PageMaker including versions of Lorem Ipsum.
-                    </p>
-                </div>
-                <div className="py-8 pr-96">
-                    <div className="border border-ascent-color-300 w-96 h-80 rounded-lg">
-                        <div className="pb-28">
-                            <h3 className="font-bold text-2xl pt-4 text-ascent-color-300">
-                                Estou Interessado
-                            </h3>
-                            <p className="pt-4">Preencha os campos abaixo</p>
-                            <div>
-                                <form className="flex justify-center pb-4 pt-6">
-                                    <label className="block">
-                                        <span className="block text-sm font-medium">
-                                            Seu nome:
-                                        </span>
-                                        <input className="border-slate-200 placeholder-slate-400 contrast-more:border-slate-400 contrast-more:placeholder-slate-500" />
-                                    </label>
-                                </form>
-                                <form className="pb-4 flex justify-center">
-                                    <label className="block">
-                                        <span className="block text-sm font-medium">
-                                            E-mail:
-                                        </span>
-                                        <input className="border-slate-200 placeholder-slate-400 contrast-more:border-slate-400 contrast-more:placeholder-slate-500" />
-                                    </label>
-                                </form>
-                                <form className="pb-4 flex justify-center">
-                                    <label className="block">
-                                        <span className="block text-sm font-medium">
-                                            Celular:
-                                        </span>
-                                        <input className="border-slate-200 placeholder-slate-400 contrast-more:border-slate-400 contrast-more:placeholder-slate-500" />
-                                    </label>
-                                </form>
-                            </div>
-                            <a
-                                href="/"
-                                className="flex justify-center text-ascent-color-300 font-bold"
-                            >
-                                Enviar
-                            </a>
-                        </div>
-                    </div>
-                </div>
+                </ImageCarousel>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3704.743158839186!2d-48.17975870920287!3d-21.79019926067796!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94b8f3de1c490885%3A0x93f58bfd5ec8efe2!2sAv.%20Jos%C3%A9%20Bonif%C3%A1cio%2C%20819%20-%20Centro%2C%20Araraquara%20-%20SP%2C%2014801-150!5e0!3m2!1spt-BR!2sbr!4v1684857382849!5m2!1spt-BR!2sbr"
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    className={`w-full h-80 ${activeInfo != 'map' && 'hidden'}`}
+                ></iframe>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!4v1685370431696!6m8!1m7!1s2ZjNrKvq-M0bsnnMX9ZhIQ!2m2!1d-21.79017996379078!2d-48.17968847677245!3f179.13072989517855!4f4.0126903522473185!5f0.7820865974627469"
+                    allowFullScreen=""
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    className={`w-full h-80 ${
+                        activeInfo != 'street' && 'hidden'
+                    }`}
+                ></iframe>
+            </div>
+
+            <div className="flex justify-center px-32">
+                <HouseInfo
+                    activeInfo={activeInfo}
+                    setActiveInfo={setActiveInfo}
+                />
+                <AgendarForm />
             </div>
         </div>
     )
