@@ -16,7 +16,6 @@ import {
 } from 'react-icons/bs'
 import { usePathname } from 'next/navigation'
 import Button from './Button'
-import { MdOpacity } from 'react-icons/md'
 
 function Navbar() {
     const [menuIsOpen, setMenuIsOpen] = useState(false)

@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import PeopleCard from '../components/quem-somos/PeopleCard'
 
 function page() {

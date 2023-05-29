@@ -3,7 +3,7 @@
 import UseWindowSize from '@/app/hooks/UseWindowSize'
 import { useRef, useState } from 'react'
 import { GiMagnifyingGlass } from 'react-icons/gi'
-import Button from '../Button'
+import Button from '../../Button'
 
 function SearchBar() {
     const [isBuy, setIsBuy] = useState(true)
