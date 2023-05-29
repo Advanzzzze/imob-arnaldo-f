@@ -1,4 +1,4 @@
-function Button({ children, onClick, variant, className }) {
+function Button({ children, onClick, variant, className, target }) {
     if (!variant || variant == 'normal') {
         return (
             <button
@@ -40,6 +40,7 @@ function Button({ children, onClick, variant, className }) {
             <a
                 href={onClick ? onClick : '/'}
                 className={`text-white text-center border border-ascent-color-300 whitespace-nowrap rounded-lg px-4 py-2 bg-ascent-color-300 active:bg-ascent-color-300/10 ${className}`}
+                target={target ? target : '_self'}
             >
                 {children}
             </a>
@@ -48,7 +49,8 @@ function Button({ children, onClick, variant, className }) {
         return (
             <a
                 href={onClick ? onClick : '/'}
-                className={`text-white text-center border border-ascent-color-300 p-2 active:bg-ascent-color-300/10 ${className}`}
+                className={`text-white text-center border border-ascent-color-300 p-2 active:bg-ascent-color-300/10 ${className} rounded-lg`}
+                target={target ? target : '_self'}
             >
                 {children}
             </a>
@@ -58,6 +60,7 @@ function Button({ children, onClick, variant, className }) {
             <a
                 href={onClick ? onClick : '/'}
                 className={`text-ascent-color-300 p-2 hover:text-white ${className}`}
+                target={target ? target : '_self'}
             >
                 {children}
             </a>
@@ -67,6 +70,7 @@ function Button({ children, onClick, variant, className }) {
             <a
                 href={onClick ? onClick : '/'}
                 className={`text-white p-2 hover:text-ascent-color-300 ${className}`}
+                target={target ? target : '_self'}
             >
                 {children}
             </a>

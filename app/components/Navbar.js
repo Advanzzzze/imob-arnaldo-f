@@ -101,17 +101,17 @@ function Navbar() {
                         <p className="max-sm:hidden">Quem somos</p>
                     </a>
                     <a
-                        href="/"
+                        href="/parceiros"
                         className={`hover:text-ascent-color-300 flex flex-col justify-center items-center gap-2 max-sm:hidden max-sm:p-4 ${
-                            url[1] == '' && 'text-ascent-color-300'
+                            url[1] == 'parceiros' && 'text-ascent-color-300'
                         }`}
                     >
                         <p>Parceiros</p>
                     </a>
                     <a
-                        href="/"
+                        href="/contato"
                         className={`hover:text-ascent-color-300 flex flex-col justify-center items-center gap-2 max-sm:hidden max-sm:p-4 ${
-                            url[1] == '' && 'text-ascent-color-300'
+                            url[1] == 'contato' && 'text-ascent-color-300'
                         }`}
                     >
                         <p>Contato</p>
@@ -125,13 +125,25 @@ function Navbar() {
                     </button>
                 </div>
                 <div className="flex items-center gap-1 max-lg:hidden">
-                    <a href="/" className="hover:text-ascent-color-300">
+                    <a
+                        href="https://api.whatsapp.com/send?phone=5516997224184&text=Ol%C3%A1%2C%20vi%20seu%20site%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es.%20Poderia%20me%20ajudar%3F"
+                        className="hover:text-ascent-color-300"
+                        target="_blank"
+                    >
                         <AiOutlineWhatsApp size={25} />
                     </a>
-                    <a href="/" className="hover:text-ascent-color-300">
+                    <a
+                        href="https://www.instagram.com/corretor_arnaldofs/"
+                        className="hover:text-ascent-color-300"
+                        target="_blank"
+                    >
                         <AiOutlineInstagram size={25} />
                     </a>
-                    <a href="/" className="hover:text-ascent-color-300">
+                    <a
+                        href="https://www.facebook.com/arnaldoferreira.imoveis"
+                        className="hover:text-ascent-color-300"
+                        target="_blank"
+                    >
                         <RiFacebookCircleLine size={25} />
                     </a>
                 </div>
