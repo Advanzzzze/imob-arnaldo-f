@@ -3,7 +3,7 @@ import { BiCoinStack } from 'react-icons/bi'
 import { TfiMapAlt } from 'react-icons/tfi'
 import { BiCheckboxChecked } from 'react-icons/bi'
 import Image from 'next/image'
-import Button from './Button'
+import Button from '../Button'
 
 function About() {
     return (
@@ -15,7 +15,7 @@ function About() {
                 CORRETORES QUE VOCÊS PODEM CONFIAR
                 <span className="text-ascent-color-300">.</span>
             </h1>
-            <div className="sm:flex grid grid-cols-2 gap-2 justify-center items-center p-2 sm:gap-14">
+            <div className="sm:flex grid grid-cols-2 gap-2 justify-center p-2 sm:gap-14">
                 <div className="flex flex-col items-center">
                     <TbClipboardText size={48} />
                     <p>Cadastro Gratuito Sem Taxas Extras</p>

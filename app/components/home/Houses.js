@@ -1,6 +1,6 @@
 import { BsArrowRightShort } from 'react-icons/bs'
-import HouseCard from './houses/HouseCard'
-import Button from './Button'
+import HouseCard from '../houses/HouseCard'
+import Button from '../Button'
 
 function Houses() {
     const houses = [

@@ -1,11 +1,8 @@
-import About from './components/About'
-import Feedback from './components/Feedback'
-import Footer from './components/Footer'
-import Hero from './components/Hero'
-import HouseCard from './components/houses/HouseCard'
-import Houses from './components/Houses'
-import Navbar from './components/Navbar'
-import Section from './components/Section'
+import About from './components/home/About'
+import Feedback from './components/home/Feedback'
+import Hero from './components/home/Hero'
+import Houses from './components/home/Houses'
+import Section from './components/home/Section'
 
 export default function Home() {
     return (

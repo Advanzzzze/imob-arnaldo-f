@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import SearchBar from './hero/SearchBar'
+import SearchBar from '../hero/SearchBar'
 
 function Hero() {
     return (
