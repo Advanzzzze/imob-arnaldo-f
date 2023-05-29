@@ -5,6 +5,7 @@ import Button from '../Button'
 function Houses() {
     const houses = [
         {
+            id: '0',
             image: '/images/imovel-de-luxo.jpg',
             isHouse: true,
             location: 'Florea Bosque Da Saúde',
@@ -16,6 +17,7 @@ function Houses() {
             status: 'Pronto',
         },
         {
+            id: '1',
             image: '/images/imovel-de-luxo.jpg',
             isHouse: true,
             location: 'Florea Bosque Da Saúde',
@@ -27,6 +29,7 @@ function Houses() {
             status: 'Pronto',
         },
         {
+            id: '2',
             image: '/images/imovel-de-luxo.jpg',
             isHouse: true,
             location: 'Florea Bosque Da Saúde',
@@ -38,6 +41,7 @@ function Houses() {
             status: 'Pronto',
         },
         {
+            id: '3',
             image: '/images/imovel-de-luxo.jpg',
             isHouse: true,
             location: 'Florea Bosque Da Saúde',
@@ -49,6 +53,7 @@ function Houses() {
             status: 'Pronto',
         },
         {
+            id: '4',
             image: '/images/imovel-de-luxo.jpg',
             isHouse: true,
             location: 'Florea Bosque Da Saúde',
@@ -60,6 +65,7 @@ function Houses() {
             status: 'Pronto',
         },
         {
+            id: '5',
             image: '/images/imovel-de-luxo.jpg',
             isHouse: true,
             location: 'Florea Bosque Da Saúde',
@@ -81,6 +87,7 @@ function Houses() {
                     return (
                         <HouseCard
                             key={index}
+                            id={data.id}
                             image={data.image}
                             isHouse={data.isHouse}
                             location={data.location}
