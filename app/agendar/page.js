@@ -77,7 +77,7 @@ function Page() {
                 ></iframe>
             </div>
 
-            <div className="flex justify-center px-32">
+            <div className="flex max-md:flex-col max-md:gap-4 justify-center items-center sm:px-12 md:px-32">
                 <HouseInfo
                     activeInfo={activeInfo}
                     setActiveInfo={setActiveInfo}
