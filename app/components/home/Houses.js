@@ -1,5 +1,5 @@
 import { BsArrowRightShort } from 'react-icons/bs'
-import HouseCard from '../houses/HouseCard'
+import HouseCard from './houses/HouseCard'
 import Button from '../Button'
 
 function Houses() {
