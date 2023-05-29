@@ -29,9 +29,10 @@ function Navbar() {
     }
 
     function handleScroll() {
-        const position = window.pageYOffset
-        const arrowOpacityCalc = Math.floor(position / 10)
-        setArrowOpacity(arrowOpacityCalc)
+        const arrowOpacityCalc = Math.floor(window.pageYOffset / 10)
+        if (arrowOpacityCalc <= 150) {
+            setArrowOpacity(arrowOpacityCalc)
+        }
     }
 
     useEffect(() => {
