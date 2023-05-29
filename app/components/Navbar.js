@@ -170,7 +170,7 @@ function Navbar() {
                 </div>
             </div>
             <div
-                className={`fixed bg-primary-color-300/50 backdrop-blur-lg top-0 right-0 bottom-0 left-1/2 z-20 transition border border-secondary-color-300 ${
+                className={`fixed sm:hidden bg-primary-color-300/50 backdrop-blur-lg top-0 right-0 bottom-0 left-1/2 z-20 transition border border-secondary-color-300 ${
                     menuIsOpen ? 'translate-x-0' : 'max-sm:translate-x-full'
                 }`}
             ></div>
