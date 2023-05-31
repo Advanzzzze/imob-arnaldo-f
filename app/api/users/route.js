@@ -22,7 +22,6 @@ export async function POST() {
     const newUser = {
         userId: 'user_2QNEy4fgWoLKc7Cu5WufKcmXxTv',
         name: 'Lymei',
-        data: { teste: true },
         isAdmin: true,
     }
 
