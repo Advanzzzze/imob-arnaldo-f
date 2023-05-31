@@ -19,14 +19,38 @@ export async function GET() {
 }
 
 export async function POST() {
-    const newUser = {
-        userId: 'user_2QNEy4fgWoLKc7Cu5WufKcmXxTv',
+    const date = new Date()
+
+    const today = `${date.getFullYear()}-${
+        date.getMonth() + 1
+    }-${date.getDate()}`
+
+    const time = `${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`
+
+    const dateTime = `${today}T${time}`
+
+    const newHouse = {
         name: 'Lymei',
-        data: { teste: true },
-        isAdmin: true,
+        data: {
+            address: '',
+            info: {
+                area: '',
+                status: '',
+                bedrooms: '',
+                suite: '',
+                restrooms: '',
+                cars: '',
+            },
+            desc: '',
+            tags: [], // {title: '', iconId: 0}
+            images: [],
+        },
+        createdAt: dateTime,
     }
 
-    const result = await db.insert(houses).values(newUser)
+    console.log(dateTime)
 
-    return NextResponse.json({ response: newUser })
+    const result = await db.insert(houses).values(newHouse)
+
+    return NextResponse.json({ response: newHouse })
 }

@@ -22,6 +22,27 @@
       "when": 1685444191188,
       "tag": "0002_worthless_thena",
       "breakpoints": false
+    },
+    {
+      "idx": 3,
+      "version": "5",
+      "when": 1685541627038,
+      "tag": "0003_jittery_luckman",
+      "breakpoints": false
+    },
+    {
+      "idx": 4,
+      "version": "5",
+      "when": 1685543161179,
+      "tag": "0004_nostalgic_multiple_man",
+      "breakpoints": false
+    },
+    {
+      "idx": 5,
+      "version": "5",
+      "when": 1685543215745,
+      "tag": "0005_groovy_sentinel",
+      "breakpoints": false
     }
   ]
 }

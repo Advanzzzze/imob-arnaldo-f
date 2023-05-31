@@ -25,14 +25,18 @@ function Page() {
 
             const dataUrl = canvas.toDataURL()
 
+            console.log(dataUrl)
+
             const body = {
-                name: nameInput.current.value,
+                houseId: nameInput.current.value,
                 image: dataUrl,
             }
 
-            const response = await axios.post('/api/image', body)
+            const response = await axios.post('/api/images', body)
 
-            setImageUrl(response.data.response.data.image)
+            console.log(response)
+
+            setImageUrl(response.data.response)
         }
 
         img.src = URL.createObjectURL(imageInput.current.files[0])

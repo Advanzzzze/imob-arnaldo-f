@@ -7,7 +7,7 @@ function Page() {
     const [images, setImages] = useState([])
 
     async function getHouse() {
-        const response = await axios.get('/api/image')
+        const response = await axios.get('/api/houses')
 
         console.log(response.data.response)
 
@@ -20,8 +20,23 @@ function Page() {
 
     return (
         <div>
-            {images.map((data, index) => {
-                return <img key={index} src={data.data.image} alt={data.name} />
+            {images.map((house) => {
+                return (
+                    <div
+                        key={house.id}
+                        className="p-2 border border-ascent-color-300"
+                    >
+                        {house.data.images.map((image, index) => {
+                            return (
+                                <img
+                                    key={index}
+                                    src={image}
+                                    alt={house.name}
+                                ></img>
+                            )
+                        })}
+                    </div>
+                )
             })}
         </div>
     )

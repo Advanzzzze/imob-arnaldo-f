@@ -1,0 +1,1 @@
+ALTER TABLE `images` MODIFY COLUMN `image` varchar(8000);
