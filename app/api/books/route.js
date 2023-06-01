@@ -22,11 +22,16 @@ export async function GET() {
 export async function POST(request) {
     const body = await request.json()
 
-    const newBook = {}
+    const newBook = {
+        userId: body.userId,
+        guideId: body.guideId,
+        houseId: body.houseId,
+        date: body.date,
+    }
 
-    const result = await db.insert(books).values(newHouse)
+    const result = await db.insert(books).values(newBook)
 
-    return NextResponse.json({ response: newHouse })
+    return NextResponse.json({ response: newBook })
 }
 
 export async function PUT(request) {
@@ -42,28 +47,16 @@ export async function PUT(request) {
 export async function PATCH(request) {
     const body = await request.json()
 
-    const newHouse = {
-        name: body.name,
-        data: {
-            isHouse: body.isHouse,
-            address: body.address,
-            info: {
-                area: body.area,
-                status: body.status,
-                bedrooms: body.bedrooms,
-                suites: body.suites,
-                restrooms: body.restrooms,
-                cars: body.cars,
-            },
-            description: body.description,
-            tags: body.tags, // {title: '', iconId: 0}
-            images: body.images,
-        },
+    const newBook = {
+        userId: body.userId,
+        guideId: body.guideId,
+        houseId: body.houseId,
+        date: body.date,
     }
 
     const response = await db
         .update(books)
-        .set(newHouse)
+        .set(newBook)
         .where(eq(books.id, body.id))
 
     return NextResponse.json({ response: response })
