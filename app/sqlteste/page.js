@@ -2,6 +2,7 @@
 
 import axios from 'axios'
 import { useRef, useState } from 'react'
+import uploadImage from '../utils/uploadImage'
 
 function Page() {
     const [imageUrl, setImageUrl] = useState()
@@ -12,34 +13,14 @@ function Page() {
     async function handleSubmit(e) {
         e.preventDefault()
 
-        const img = new Image()
-
-        img.crossOrigin = 'anonymous'
-
-        img.onload = async () => {
-            const canvas = document.createElement('canvas')
-            const ctx = canvas.getContext('2d')
-            canvas.height = img.naturalHeight
-            canvas.width = img.naturalWidth
-            ctx.drawImage(img, 0, 0)
-
-            const dataUrl = canvas.toDataURL()
-
-            console.log(dataUrl)
-
-            const body = {
-                houseId: nameInput.current.value,
-                image: dataUrl,
+        uploadImage(
+            nameInput.current.value,
+            imageInput.current.files[0],
+            async (body) => {
+                const response = await axios.post('/api/images', body)
+                setImageUrl(response.data.response)
             }
-
-            const response = await axios.post('/api/images', body)
-
-            console.log(response)
-
-            setImageUrl(response.data.response)
-        }
-
-        img.src = URL.createObjectURL(imageInput.current.files[0])
+        )
     }
 
     return (

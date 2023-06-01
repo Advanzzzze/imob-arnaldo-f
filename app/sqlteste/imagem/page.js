@@ -9,8 +9,6 @@ function Page() {
     async function getHouse() {
         const response = await axios.get('/api/houses')
 
-        console.log(response.data.response)
-
         setImages(response.data.response)
     }
 

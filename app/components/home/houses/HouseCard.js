@@ -28,7 +28,6 @@ function HouseCard({
         if (items) {
             const oldArray = items.split(',')
             if (oldArray.includes(id)) {
-                console.log('REPETIDO')
                 localStorage.setItem(
                     'liked-houses',
                     oldArray.filter((data) => data != id)
