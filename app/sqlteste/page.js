@@ -17,7 +17,7 @@ function Page() {
             nameInput.current.value,
             imageInput.current.files[0],
             async (body) => {
-                const response = await axios.post('/api/images', body)
+                const response = await axios.post('/api/houses/addImage', body)
                 setImageUrl(response.data.response)
             }
         )

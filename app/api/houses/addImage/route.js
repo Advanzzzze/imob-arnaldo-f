@@ -1,7 +1,7 @@
 import { drizzle } from 'drizzle-orm/planetscale-serverless'
 import { connect } from '@planetscale/database'
 import { NextResponse } from 'next/server'
-import { houses, images } from '@/db/schema'
+import { houses } from '@/db/schema'
 import { eq } from 'drizzle-orm'
 
 // create the connection
@@ -12,17 +12,6 @@ const connection = connect({
 })
 
 const db = drizzle(connection)
-
-export async function GET(request) {
-    const body = await request.json()
-
-    const result = await db
-        .select()
-        .from(images)
-        .where(eq(images.houseId, body.houseId))
-
-    return NextResponse.json({ response: result })
-}
 
 export async function POST(request) {
     const body = await request.json()
