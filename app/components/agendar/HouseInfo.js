@@ -90,7 +90,7 @@ function HouseInfo({ activeInfo, setActiveInfo }) {
                     <p>1 a 2</p>
                 </div>
             </div>
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col gap-2 md:w-4/5">
                 <h3 className="font-bold text-2xl">Sobre o Imóvel</h3>
                 <p>
                     Lorem Ipsum is simply dummy text of the printing and
