@@ -65,7 +65,11 @@ function About() {
                         também com laudos e vistorias
                         <span className="text-ascent-color-300">.</span>
                     </p>
-                    <Button variant={'a-text'} onClick={'/quem-somos'}>
+                    <Button
+                        className={'max-xl:text-primary-color-200'}
+                        variant={'a-text'}
+                        onClick={'/quem-somos'}
+                    >
                         Saiba mais
                     </Button>{' '}
                 </div>

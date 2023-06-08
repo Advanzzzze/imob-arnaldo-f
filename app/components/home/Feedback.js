@@ -19,11 +19,13 @@ function Feedback() {
                             alt="teste"
                             className="object-contain"
                         />
-                        <p className="text-ascent-color-300">~ Alessandra</p>
+                        <p className="font-bold text-primary-color-200">
+                            ~ Alessandra
+                        </p>
                     </div>
                     <p className="w-4/5 sm:w-1/3">
                         " Parabéns à{' '}
-                        <span className="font-bold">
+                        <span className="font-bold text-primary-color-200">
                             Arnaldo Ferreira Imóveis
                         </span>{' '}
                         pela excelência e compromisso em oferecer um serviço
@@ -43,11 +45,13 @@ function Feedback() {
                             alt="teste"
                             className="object-contain"
                         />
-                        <p className="text-ascent-color-300">~ João Santos</p>
+                        <p className="font-bold text-primary-color-200">
+                            ~ João Santos
+                        </p>
                     </div>
                     <p className="w-4/5 sm:w-1/3">
                         " Parabéns à{' '}
-                        <span className="font-bold">
+                        <span className="font-bold text-primary-color-200">
                             Arnaldo Ferreira Imóveis
                         </span>{' '}
                         pela excelência e compromisso em oferecer um serviço
@@ -67,11 +71,13 @@ function Feedback() {
                             alt="teste"
                             className="object-contain"
                         />
-                        <p className="text-ascent-color-300">~ Ana</p>
+                        <p className="font-bold text-primary-color-200">
+                            ~ Ana
+                        </p>
                     </div>
                     <p className="w-4/5 sm:w-1/3">
                         " Parabéns à{' '}
-                        <span className="font-bold">
+                        <span className="font-bold text-primary-color-200">
                             Arnaldo Ferreira Imóveis
                         </span>{' '}
                         pela excelência e compromisso em oferecer um serviço
@@ -83,7 +89,9 @@ function Feedback() {
                     </p>
                 </div>
             </div>
-            <Button variant={'a-text'}>Ver mais</Button>
+            <Button className={'text-primary-color-200'} variant={'a-text'}>
+                Ver mais
+            </Button>
         </div>
     )
 }
