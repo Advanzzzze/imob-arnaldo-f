@@ -16,8 +16,12 @@ import {
 } from 'react-icons/bs'
 import { usePathname } from 'next/navigation'
 import Button from './Button'
+import { UserButton, useAuth, useClerk } from '@clerk/nextjs'
+import Link from 'next/link'
 
 function Navbar() {
+    const { isLoaded, userId, sessionId, getToken } = useAuth()
+    const { signOut } = useClerk()
     const [menuIsOpen, setMenuIsOpen] = useState(false)
     const [arrowOpacity, setArrowOpacity] = useState(0)
 
@@ -74,7 +78,7 @@ function Navbar() {
                         className="max-sm:hidden"
                     />
                     <div className="flex justify-evenly w-full gap-4 items-center text-center max-sm:text-2xl">
-                        <a
+                        <Link
                             href="/"
                             className={`hover:text-ascent-color-300 flex flex-col justify-center items-center gap-2 max-sm:p-4 ${
                                 url[1] == '' && 'text-ascent-color-300'
@@ -82,8 +86,8 @@ function Navbar() {
                         >
                             <AiFillHome className="sm:hidden" />
                             <p className="max-sm:hidden">Inicio</p>
-                        </a>
-                        <a
+                        </Link>
+                        <Link
                             href="/agendar"
                             className={`hover:text-ascent-color-300 flex flex-col justify-center items-center gap-2 max-sm:p-4 ${
                                 url[1] == 'agendar' && 'text-ascent-color-300'
@@ -91,8 +95,8 @@ function Navbar() {
                         >
                             <BsFillBookmarkFill className="sm:hidden" />
                             <p className="max-sm:hidden">Agendar</p>
-                        </a>
-                        <a
+                        </Link>
+                        <Link
                             href="/quem-somos"
                             className={`hover:text-ascent-color-300 flex flex-col justify-center items-center gap-2 max-sm:p-4 ${
                                 url[1] == 'quem-somos' &&
@@ -101,8 +105,8 @@ function Navbar() {
                         >
                             <BsFillPeopleFill className="sm:hidden" />
                             <p className="max-sm:hidden">Quem somos</p>
-                        </a>
-                        <a
+                        </Link>
+                        <Link
                             href="/parceiros"
                             className={`hover:text-ascent-color-300 flex flex-col justify-center items-center gap-2 max-sm:fixed top-2 right-2 max-sm:p-4 max-sm:text-lg transition ${
                                 url[1] == 'parceiros' && 'text-ascent-color-300'
@@ -113,8 +117,8 @@ function Navbar() {
                             }`}
                         >
                             <p>Parceiros</p>
-                        </a>
-                        <a
+                        </Link>
+                        <Link
                             href="/contato"
                             className={`hover:text-ascent-color-300 flex flex-col justify-center items-center gap-2 max-sm:fixed top-10 right-2 max-sm:p-4 transition max-sm:text-lg ${
                                 url[1] == 'contato' && 'text-ascent-color-300'
@@ -125,14 +129,18 @@ function Navbar() {
                             }`}
                         >
                             <p>Contato</p>
-                        </a>
-                        <button onClick={handleClick} className="sm:hidden p-4">
+                        </Link>
+                        <Button
+                            onClick={handleClick}
+                            variant={'text'}
+                            className="sm:hidden text-white p-4"
+                        >
                             {menuIsOpen ? (
                                 <p className="w-6">x</p>
                             ) : (
                                 <RxHamburgerMenu />
                             )}
-                        </button>
+                        </Button>
                     </div>
                     <div className="flex items-center gap-1 max-lg:hidden">
                         <a
@@ -164,8 +172,23 @@ function Navbar() {
                                 : 'max-sm:translate-x-full'
                         }`}
                     >
-                        <Button>Cadastre-se</Button>
-                        <Button variant={'text'}>Entrar</Button>
+                        {userId && isLoaded ? (
+                            <>
+                                <Button variant={'text'} onClick={signOut}>
+                                    Sair
+                                </Button>
+                                <UserButton />
+                            </>
+                        ) : (
+                            <>
+                                <Button variant={'a'} onClick={'/sign-up'}>
+                                    Cadastre-se
+                                </Button>
+                                <Button variant={'a-text'} onClick={'/sign-in'}>
+                                    Entrar
+                                </Button>
+                            </>
+                        )}
                     </div>
                 </div>
             </div>

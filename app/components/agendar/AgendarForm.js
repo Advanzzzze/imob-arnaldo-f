@@ -18,14 +18,14 @@ function AgendarForm() {
                     />
                 </div>
                 <div className="flex gap-2">
-                    <div>
+                    <div className="flex-auto">
                         <p className="block">E-mail</p>
                         <input
                             placeholder="Digite seu e-mail"
                             className={inputStyle}
                         />
                     </div>
-                    <div>
+                    <div className="flex-auto">
                         <p className="block">Telefone</p>
                         <input
                             placeholder="(xx) xxxxx-xxxx"
