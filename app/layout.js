@@ -2,7 +2,7 @@ import './globals.css'
 import Footer from './components/Footer'
 import Navbar from './components/Navbar'
 import { Open_Sans } from 'next/font/google'
-import { ClerkProvider } from '@clerk/nextjs'
+import { ClerkProvider, currentUser } from '@clerk/nextjs'
 import { ptBR } from '@clerk/localizations'
 
 const open_Sans = Open_Sans({ subsets: ['latin'] })

@@ -1,7 +1,7 @@
 'use client'
 
 import Image from 'next/image'
-import { useEffect, useState } from 'react'
+import { Suspense, useEffect, useState } from 'react'
 import {
     AiOutlineWhatsApp,
     AiOutlineInstagram,
@@ -16,11 +16,13 @@ import {
 } from 'react-icons/bs'
 import { usePathname } from 'next/navigation'
 import Button from './Button'
-import { UserButton, useAuth, useClerk } from '@clerk/nextjs'
+import { UserButton, useAuth, useClerk, useUser } from '@clerk/nextjs'
 import Link from 'next/link'
+import axios from 'axios'
 
 function Navbar() {
     const { isLoaded, userId, sessionId, getToken } = useAuth()
+    const { isSignedIn, user } = useUser()
     const { signOut } = useClerk()
     const [menuIsOpen, setMenuIsOpen] = useState(false)
     const [arrowOpacity, setArrowOpacity] = useState(0)
@@ -45,6 +47,17 @@ function Navbar() {
             window.removeEventListener('scroll', handleScroll)
         }
     }, [])
+
+    if (isLoaded && userId) {
+        axios.put('/api/users', { userId: userId }).then(({ data }) => {
+            if (data.response.length == 0) {
+                const newUser = {
+                    userId: userId,
+                }
+                axios.post('/api/users', newUser)
+            }
+        })
+    }
 
     return (
         <>
