@@ -48,15 +48,34 @@ function Navbar() {
         }
     }, [])
 
-    if (isLoaded && userId) {
-        axios.put('/api/users', { userId: userId }).then(({ data }) => {
-            if (data.response.length == 0) {
-                const newUser = {
-                    userId: userId,
-                }
-                axios.post('/api/users', newUser)
+    if (isLoaded) {
+        if (userId) {
+            const user = localStorage.getItem('userLogged')
+            console.log(user)
+            if (!user) {
+                console.log('searching user...')
+
+                let newLocalUser = null
+
+                axios
+                    .put('/api/users', { userId: userId })
+                    .then(({ data }) => {
+                        if (data.response.length == 0) {
+                            const newUser = {
+                                userId: userId,
+                            }
+                            axios
+                                .post('/api/users', newUser)
+                                .then(({ data }) => {
+                                    newLocalUser = data.response
+                                })
+                        } else {
+                            newLocalUser = data.response
+                        }
+                    })
+                    .finally(localStorage.setItem('userLogged', newLocalUser))
             }
-        })
+        } else localStorage.removeItem('userLogged')
     }
 
     return (
