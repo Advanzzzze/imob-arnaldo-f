@@ -1,101 +1,27 @@
 import { BsArrowRightShort } from 'react-icons/bs'
 import HouseCard from './houses/HouseCard'
 import Button from '../Button'
+import { houses } from '@/app/utils/consts'
 
 function Houses() {
-    const houses = [
-        {
-            id: '0',
-            image: '/images/imovel-de-luxo.jpg',
-            isHouse: true,
-            location: 'Florea Bosque Da Saúde',
-            address: 'Rua Marcos Fernandes, 156',
-            city: 'Saúde, São Paulo',
-            description:
-                'More em um projeto de torres independentes criadas a partir de um Design Biofílico que chegou para cria...',
-            size: '20m',
-            status: 'Pronto',
-        },
-        {
-            id: '1',
-            image: '/images/imovel-de-luxo.jpg',
-            isHouse: true,
-            location: 'Florea Bosque Da Saúde',
-            address: 'Rua Marcos Fernandes, 156',
-            city: 'Saúde, São Paulo',
-            description:
-                'More em um projeto de torres independentes criadas a partir de um Design Biofílico que chegou para cria...',
-            size: '20m',
-            status: 'Pronto',
-        },
-        {
-            id: '2',
-            image: '/images/imovel-de-luxo.jpg',
-            isHouse: true,
-            location: 'Florea Bosque Da Saúde',
-            address: 'Rua Marcos Fernandes, 156',
-            city: 'Saúde, São Paulo',
-            description:
-                'More em um projeto de torres independentes criadas a partir de um Design Biofílico que chegou para cria...',
-            size: '20m',
-            status: 'Pronto',
-        },
-        {
-            id: '3',
-            image: '/images/imovel-de-luxo.jpg',
-            isHouse: true,
-            location: 'Florea Bosque Da Saúde',
-            address: 'Rua Marcos Fernandes, 156',
-            city: 'Saúde, São Paulo',
-            description:
-                'More em um projeto de torres independentes criadas a partir de um Design Biofílico que chegou para cria...',
-            size: '20m',
-            status: 'Pronto',
-        },
-        {
-            id: '4',
-            image: '/images/imovel-de-luxo.jpg',
-            isHouse: true,
-            location: 'Florea Bosque Da Saúde',
-            address: 'Rua Marcos Fernandes, 156',
-            city: 'Saúde, São Paulo',
-            description:
-                'More em um projeto de torres independentes criadas a partir de um Design Biofílico que chegou para cria...',
-            size: '20m',
-            status: 'Pronto',
-        },
-        {
-            id: '5',
-            image: '/images/imovel-de-luxo.jpg',
-            isHouse: true,
-            location: 'Florea Bosque Da Saúde',
-            address: 'Rua Marcos Fernandes, 156',
-            city: 'Saúde, São Paulo',
-            description:
-                'More em um projeto de torres independentes criadas a partir de um Design Biofílico que chegou para cria...',
-            size: '20m',
-            status: 'Pronto',
-        },
-    ]
-
     return (
         <div className="flex flex-col justify-center items-center py-16 relative">
             <div className="h-[120%] w-[200%] -z-10 bg-primary-color-200/40 absolute rotate-6"></div>
             <h2 className="text-2xl font-bold">IMÓVEIS EXCLUSIVOS</h2>
             <div className="flex overflow-y-visible overflow-x-auto snap-x snap-mandatory py-12 px-4 max-sm:w-screen sm:grid sm:grid-cols-2 md:grid-cols-3 gap-4">
-                {houses.map((data, index) => {
+                {houses.slice(0, 6).map((house) => {
                     return (
                         <HouseCard
-                            key={index}
-                            id={data.id}
-                            image={data.image}
-                            isHouse={data.isHouse}
-                            location={data.location}
-                            address={data.address}
-                            city={data.city}
-                            description={data.description}
-                            size={data.size}
-                            status={data.status}
+                            key={house.id}
+                            id={house.id}
+                            isHouse={house.data.isHouse}
+                            city={house.data.city}
+                            address={house.data.address}
+                            location={house.data.location}
+                            description={house.data.description}
+                            size={house.data.info.size}
+                            status={house.data.info.status}
+                            image={house.data.images[0]}
                         />
                     )
                 })}

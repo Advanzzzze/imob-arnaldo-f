@@ -1,12 +1,9 @@
-'use client'
-
 import Image from 'next/image'
-import { useEffect, useState } from 'react'
-import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai'
 import { BsHouseDoor } from 'react-icons/bs'
 import { MdOutlineApartment } from 'react-icons/md'
 import { TbRulerMeasure } from 'react-icons/tb'
 import { IoIosConstruct } from 'react-icons/io'
+import Link from 'next/link'
 
 function HouseCard({
     id,
@@ -18,36 +15,12 @@ function HouseCard({
     description,
     size,
     status,
-    isLikedP,
 }) {
-    const [isLiked, setIsLiked] = useState(isLikedP)
-
-    function handleLike() {
-        setIsLiked(!isLiked)
-        const items = localStorage.getItem('liked-houses')
-        if (items) {
-            const oldArray = items.split(',')
-            if (oldArray.includes(id)) {
-                localStorage.setItem(
-                    'liked-houses',
-                    oldArray.filter((data) => data != id)
-                )
-            } else localStorage.setItem('liked-houses', [...oldArray, id])
-        } else localStorage.setItem('liked-houses', [id])
-    }
-
-    useEffect(() => {
-        const items = localStorage.getItem('liked-houses')
-        if (items) {
-            const oldArray = items.split(',')
-            if (oldArray.includes(id)) {
-                setIsLiked(true)
-            } else setIsLiked(false)
-        }
-    }, [])
-
     return (
-        <div className="flex flex-col items-center h-[500px] w-80 flex-none snap-center bg-neutral-500 rounded-lg overflow-hidden hover:-translate-y-2 transition">
+        <Link
+            href={`/agendar/${id}`}
+            className="flex flex-col items-center h-[500px] w-80 flex-none snap-center bg-neutral-500 rounded-lg overflow-hidden hover:-translate-y-1 cursor-pointer transition"
+        >
             <Image
                 src={image}
                 width={256}
@@ -89,21 +62,9 @@ function HouseCard({
                         />
                         <p>{status}</p>
                     </div>
-                    <button
-                        onClick={() => {
-                            handleLike()
-                        }}
-                        className="text-ascent-color-300"
-                    >
-                        {isLiked ? (
-                            <AiFillHeart size={20} />
-                        ) : (
-                            <AiOutlineHeart size={20} />
-                        )}
-                    </button>
                 </div>
             </div>
-        </div>
+        </Link>
     )
 }
 
