@@ -11,8 +11,8 @@ import { RiFacebookCircleLine } from 'react-icons/ri'
 import { RxHamburgerMenu } from 'react-icons/rx'
 import {
     BsFillArrowUpCircleFill,
-    BsFillBookmarkFill,
     BsFillPeopleFill,
+    BsHousesFill,
 } from 'react-icons/bs'
 import { FiSettings } from 'react-icons/fi'
 import { usePathname } from 'next/navigation'
@@ -131,7 +131,7 @@ function Navbar() {
                                 url[1] == 'casas' && 'text-ascent-color-300'
                             }`}
                         >
-                            <BsFillPeopleFill className="sm:hidden" />
+                            <BsHousesFill className="sm:hidden" />
                             <p className="max-sm:hidden">Casas</p>
                         </Link>{' '}
                         <Link
