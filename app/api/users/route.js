@@ -2,6 +2,8 @@ import { drizzle } from 'drizzle-orm/planetscale-serverless'
 import { connect } from '@planetscale/database'
 import { NextResponse } from 'next/server'
 import { users } from '@/db/schema'
+import { eq } from 'drizzle-orm'
+import { currentUser } from '@clerk/nextjs'
 
 // create the connection
 const connection = connect({
@@ -18,14 +20,28 @@ export async function GET() {
     return NextResponse.json({ response: result })
 }
 
-export async function POST() {
+export async function POST(request) {
+    const body = await request.json()
+    const user = await currentUser()
+
     const newUser = {
-        userId: 'user_2QNEy4fgWoLKc7Cu5WufKcmXxTv',
-        name: 'Lymei',
-        isAdmin: true,
+        userId: body.userId,
+        name: user.firstName,
+        isAdmin: false,
     }
 
     const result = await db.insert(users).values(newUser)
 
     return NextResponse.json({ response: newUser })
+}
+
+export async function PUT(request) {
+    const body = await request.json()
+
+    const result = await db
+        .select()
+        .from(users)
+        .where(eq(users.userId, body.userId))
+
+    return NextResponse.json({ response: result })
 }
