@@ -51,29 +51,33 @@ function Navbar() {
 
     if (isLoaded) {
         if (userId) {
-            const user = localStorage.getItem('userLogged')
-            if (!user) {
-                console.log('searching user...')
+            if (typeof window !== 'undefined') {
+                const user = localStorage.getItem('userLogged')
+                if (!user) {
+                    console.log('searching user...')
 
-                let newLocalUser = null
+                    let newLocalUser = null
 
-                axios
-                    .put('/api/users', { userId: userId })
-                    .then(({ data }) => {
-                        if (data.response.length == 0) {
-                            const newUser = {
-                                userId: userId,
+                    axios
+                        .put('/api/users', { userId: userId })
+                        .then(({ data }) => {
+                            if (data.response.length == 0) {
+                                const newUser = {
+                                    userId: userId,
+                                }
+                                axios
+                                    .post('/api/users', newUser)
+                                    .then(({ data }) => {
+                                        newLocalUser = data.response
+                                    })
+                            } else {
+                                newLocalUser = data.response
                             }
-                            axios
-                                .post('/api/users', newUser)
-                                .then(({ data }) => {
-                                    newLocalUser = data.response
-                                })
-                        } else {
-                            newLocalUser = data.response
-                        }
-                    })
-                    .finally(localStorage.setItem('userLogged', newLocalUser))
+                        })
+                        .finally(
+                            localStorage.setItem('userLogged', newLocalUser)
+                        )
+                }
             }
         } else localStorage.removeItem('userLogged')
     }
