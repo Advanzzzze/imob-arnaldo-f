@@ -14,6 +14,7 @@ import {
     BsFillBookmarkFill,
     BsFillPeopleFill,
 } from 'react-icons/bs'
+import { FiSettings } from 'react-icons/fi'
 import { usePathname } from 'next/navigation'
 import Button from './Button'
 import { UserButton, useAuth, useClerk } from '@clerk/nextjs'
@@ -51,7 +52,7 @@ function Navbar() {
             <div className="flex justify-center items-center w-screen bg-primary-color-300 z-10 sm:border-t-8 sm:border-ascent-color-300 sm:border-b-white/20 sm:border-b">
                 <a
                     href="#home"
-                    className={`fixed z-50 text-ascent-color-300 sm:right-8 bottom-24 sm:bottom-8 animate-bounce transition ${
+                    className={`fixed z-50 text-ascent-color-300 bottom-24 sm:bottom-8 sm:left-8 animate-bounce transition ${
                         arrowOpacity < 100
                             ? arrowOpacity < 75
                                 ? arrowOpacity < 50
@@ -65,7 +66,13 @@ function Navbar() {
                 >
                     <BsFillArrowUpCircleFill size={20} />
                 </a>
-
+                <a
+                    href="https://api.whatsapp.com/send?phone=5516997224184&text=Ol%C3%A1%2C%20vi%20seu%20site%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es.%20Poderia%20me%20ajudar%3F"
+                    className="fixed z-50 text-ascent-color-300 sm:right-8 bottom-32 sm:bottom-8 hover:scale-105 transition origin-center"
+                    target="_blank"
+                >
+                    <AiOutlineWhatsApp size={40} />
+                </a>
                 <div
                     id="navbar-container"
                     className="flex max-sm:w-full justify-center sm:justify-between gap-4 max-sm:h-20 h-32 max-sm:fixed max-sm:z-50 max-sm:bg-primary-color-300 max-sm:border-t border-secondary-color-300 bottom-0 left-0"
@@ -74,7 +81,7 @@ function Navbar() {
                         src="/images/logo-arnaldo.svg"
                         width={256}
                         height={143}
-                        alt="teste"
+                        alt="Logo"
                         className="max-sm:hidden"
                     />
                     <div className="flex justify-evenly w-full gap-4 items-center text-center max-sm:text-2xl">
@@ -87,15 +94,7 @@ function Navbar() {
                             <AiFillHome className="sm:hidden" />
                             <p className="max-sm:hidden">Inicio</p>
                         </Link>
-                        <Link
-                            href="/agendar"
-                            className={`hover:text-ascent-color-300 flex flex-col justify-center items-center gap-2 max-sm:p-4 ${
-                                url[1] == 'agendar' && 'text-ascent-color-300'
-                            }`}
-                        >
-                            <BsFillBookmarkFill className="sm:hidden" />
-                            <p className="max-sm:hidden">Agendar</p>
-                        </Link>
+
                         <Link
                             href="/quem-somos"
                             className={`hover:text-ascent-color-300 flex flex-col justify-center items-center gap-2 max-sm:p-4 ${
@@ -189,6 +188,12 @@ function Navbar() {
                                 </Button>
                             </>
                         )}
+                        <a href="/dashboard">
+                            <FiSettings
+                                className="hover:text-ascent-color-300"
+                                size={25}
+                            />
+                        </a>
                     </div>
                 </div>
             </div>

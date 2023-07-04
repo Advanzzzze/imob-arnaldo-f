@@ -59,18 +59,6 @@ function page() {
                             name={'Arnaldo Ferreira'}
                             image={'/images/img-arnaldo.svg'}
                         />
-                        <PeopleCard
-                            name={'Arnaldo Ferreira'}
-                            image={'/images/img-arnaldo.svg'}
-                        />
-                        <PeopleCard
-                            name={'Arnaldo Ferreira'}
-                            image={'/images/img-arnaldo.svg'}
-                        />
-                        <PeopleCard
-                            name={'Arnaldo Ferreira'}
-                            image={'/images/img-arnaldo.svg'}
-                        />
                     </div>
                 </div>
                 <a
