@@ -11,6 +11,7 @@ export default authMiddleware({
         '/contato',
         '/quem-somos',
         '/agendar/2',
+        '/api/houses',
     ],
 })
 
