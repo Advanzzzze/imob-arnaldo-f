@@ -4,22 +4,26 @@ import { useEffect, useState } from 'react'
 import Button from '../../components/Button'
 import AddHouse from '@/app/components/dashboard/houses/AddHouse'
 import axios from 'axios'
+import { houses } from '@/app/utils/consts'
 
 function Page() {
     const [openModal, setOpenModal] = useState(false)
-    const [houses, setHouses] = useState([])
+    // const [houses, setHouses] = useState([])
 
-    useEffect(() => {
-        axios.get('/api/houses').then((res) => console.log(res.data))
-    }, [])
+    // useEffect(() => {
+    //     axios.get('/api/houses').then((res) => {
+    //         setHouses(res.data.response)
+    //         console.log(res.data.response)
+    //     })
+    // }, [])
 
     return (
-        <div className="flex justify-center flex-col items-center h-[40vh] gap-5 text-black">
+        <div className="flex justify-center flex-col items-center h-[70vh] gap-5 text-black">
             {openModal && <AddHouse setOpenModal={setOpenModal} />}
             <div className="flex justify-center items-center">
                 <h1 className="font-bold text-4xl text-white">Casas</h1>
             </div>
-            <div className="bg-white w-[800px] p-4 rounded-lg">
+            <div className="bg-white w-[800px] p-4 rounded-lg overflow-y-auto">
                 <h2
                     className="text-black mb-4
                 "
@@ -61,6 +65,24 @@ function Page() {
                     >
                         Limpar
                     </Button>
+                </div>
+                <div>
+                    {houses.map((house) => (
+                        <div key={house.id}>
+                            <p>{house.name}</p>
+                            <p>{house.data.address}</p>
+                            <p>{house.data.city}</p>
+                            <div className="h-24 flex">
+                                {house.data.images.map((image, index) => (
+                                    <img
+                                        key={`${house.name}-${index}`}
+                                        src={image}
+                                        alt={house.name}
+                                    />
+                                ))}
+                            </div>
+                        </div>
+                    ))}
                 </div>
             </div>
             <Button

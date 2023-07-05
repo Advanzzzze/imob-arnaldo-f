@@ -60,7 +60,17 @@ export const houses = [
                 size: '20m',
                 status: 'Pronto',
             },
-            images: ['/images/imovel-de-luxo.jpg'],
+            images: [
+                '/images/imovel-de-luxo.jpg',
+                '/images/imovel-de-luxo.jpg',
+                '/images/imovel-de-luxo.jpg',
+                '/images/imovel-de-luxo.jpg',
+                '/images/imovel-de-luxo.jpg',
+                '/images/imovel-de-luxo.jpg',
+                '/images/imovel-de-luxo.jpg',
+                '/images/imovel-de-luxo.jpg',
+                '/images/imovel-de-luxo.jpg',
+            ],
         },
     },
     {
