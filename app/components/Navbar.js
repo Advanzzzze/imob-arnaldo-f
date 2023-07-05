@@ -11,8 +11,8 @@ import { RiFacebookCircleLine } from 'react-icons/ri'
 import { RxHamburgerMenu } from 'react-icons/rx'
 import {
     BsFillArrowUpCircleFill,
-    BsFillBookmarkFill,
     BsFillPeopleFill,
+    BsHousesFill,
 } from 'react-icons/bs'
 import { FiSettings } from 'react-icons/fi'
 import { usePathname } from 'next/navigation'
@@ -51,30 +51,33 @@ function Navbar() {
 
     if (isLoaded) {
         if (userId) {
-            const user = localStorage.getItem('userLogged')
-            console.log(user)
-            if (!user) {
-                console.log('searching user...')
+            if (typeof window !== 'undefined') {
+                const user = localStorage.getItem('userLogged')
+                if (!user) {
+                    console.log('searching user...')
 
-                let newLocalUser = null
+                    let newLocalUser = null
 
-                axios
-                    .put('/api/users', { userId: userId })
-                    .then(({ data }) => {
-                        if (data.response.length == 0) {
-                            const newUser = {
-                                userId: userId,
+                    axios
+                        .put('/api/users', { userId: userId })
+                        .then(({ data }) => {
+                            if (data.response.length == 0) {
+                                const newUser = {
+                                    userId: userId,
+                                }
+                                axios
+                                    .post('/api/users', newUser)
+                                    .then(({ data }) => {
+                                        newLocalUser = data.response
+                                    })
+                            } else {
+                                newLocalUser = data.response
                             }
-                            axios
-                                .post('/api/users', newUser)
-                                .then(({ data }) => {
-                                    newLocalUser = data.response
-                                })
-                        } else {
-                            newLocalUser = data.response
-                        }
-                    })
-                    .finally(localStorage.setItem('userLogged', newLocalUser))
+                        })
+                        .finally(
+                            localStorage.setItem('userLogged', newLocalUser)
+                        )
+                }
             }
         } else localStorage.removeItem('userLogged')
     }
@@ -84,7 +87,7 @@ function Navbar() {
             <div className="flex justify-center items-center w-screen bg-primary-color-300 z-10 sm:border-t-8 sm:border-ascent-color-300 sm:border-b-white/20 sm:border-b">
                 <a
                     href="#home"
-                    className={`fixed z-50 text-ascent-color-300 bottom-24 sm:bottom-8 sm:left-8 animate-bounce transition ${
+                    className={`fixed z-20 text-ascent-color-300 bottom-24 sm:bottom-8 sm:left-8 animate-bounce transition ${
                         arrowOpacity < 100
                             ? arrowOpacity < 75
                                 ? arrowOpacity < 50
@@ -100,7 +103,7 @@ function Navbar() {
                 </a>
                 <a
                     href="https://api.whatsapp.com/send?phone=5516997224184&text=Ol%C3%A1%2C%20vi%20seu%20site%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es.%20Poderia%20me%20ajudar%3F"
-                    className="fixed z-50 text-ascent-color-300 sm:right-8 bottom-32 sm:bottom-8 hover:scale-105 transition origin-center"
+                    className="fixed z-20 text-ascent-color-300 right-8 bottom-24 sm:bottom-8 hover:scale-105 transition origin-center"
                     target="_blank"
                 >
                     <AiOutlineWhatsApp size={40} />
@@ -126,7 +129,15 @@ function Navbar() {
                             <AiFillHome className="sm:hidden" />
                             <p className="max-sm:hidden">Inicio</p>
                         </Link>
-
+                        <Link
+                            href="/casas"
+                            className={`hover:text-ascent-color-300 flex flex-col justify-center items-center gap-2 max-sm:p-4 ${
+                                url[1] == 'casas' && 'text-ascent-color-300'
+                            }`}
+                        >
+                            <BsHousesFill className="sm:hidden" />
+                            <p className="max-sm:hidden">Casas</p>
+                        </Link>{' '}
                         <Link
                             href="/quem-somos"
                             className={`hover:text-ascent-color-300 flex flex-col justify-center items-center gap-2 max-sm:p-4 ${
