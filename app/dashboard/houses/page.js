@@ -1,11 +1,17 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Button from '../../components/Button'
 import AddHouse from '@/app/components/dashboard/houses/AddHouse'
+import axios from 'axios'
 
 function Page() {
     const [openModal, setOpenModal] = useState(false)
+    const [houses, setHouses] = useState([])
+
+    useEffect(() => {
+        axios.get('/api/houses').then((res) => console.log(res.data))
+    }, [])
 
     return (
         <div className="flex justify-center flex-col items-center h-[40vh] gap-5 text-black">
