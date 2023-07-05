@@ -1,9 +1,15 @@
-import Button from '../../components/Button'
-import AppModal from './AppModal'
+'use client'
 
-function page() {
+import { useState } from 'react'
+import Button from '../../components/Button'
+import AddHouse from '@/app/components/dashboard/houses/AddHouse'
+
+function Page() {
+    const [openModal, setOpenModal] = useState(false)
+
     return (
         <div className="flex justify-center flex-col items-center h-[40vh] gap-5 text-black">
+            {openModal && <AddHouse setOpenModal={setOpenModal} />}
             <div className="flex justify-center items-center">
                 <h1 className="font-bold text-4xl text-white">Casas</h1>
             </div>
@@ -51,9 +57,14 @@ function page() {
                     </Button>
                 </div>
             </div>
-            <AppModal />
+            <Button
+                className={'absolute bottom-0 right-0 m-4 text-4xl font-bold'}
+                onClick={() => setOpenModal(true)}
+            >
+                +
+            </Button>
         </div>
     )
 }
 
-export default page
+export default Page
