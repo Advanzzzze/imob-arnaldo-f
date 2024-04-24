@@ -1,4 +1,4 @@
-import { authMiddleware } from '@clerk/nextjs'
+import { authMiddleware } from '@clerk/nextjs/server'
 
 export default authMiddleware({
     publicRoutes: [
@@ -12,9 +12,10 @@ export default authMiddleware({
         '/quem-somos',
         '/agendar/2',
         '/api/houses',
+        '/api/houses/filter',
     ],
 })
 
 export const config = {
-    matcher: ['/((?!.*\\..*|_next).*)', '/', '/(api|trpc)(.*)'],
+    matcher: ['/((?!.+\\.[\\w]+$|_next).*)', '/', '/(api|trpc)(.*)'],
 }
