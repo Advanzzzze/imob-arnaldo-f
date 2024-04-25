@@ -52,7 +52,7 @@ function Navbar() {
     if (isLoaded) {
         if (userId) {
             if (typeof window !== 'undefined') {
-                const user = localStorage.getItem('userLogged')
+                const user = window.localStorage.getItem('userLogged')
                 if (!user) {
                     console.log('searching user...')
 
@@ -75,11 +75,11 @@ function Navbar() {
                             }
                         })
                         .finally(
-                            localStorage.setItem('userLogged', newLocalUser)
+                            window.localStorage.setItem('userLogged', newLocalUser)
                         )
                 }
             }
-        } else localStorage.removeItem('userLogged')
+        } else window.localStorage.removeItem('userLogged')
     }
 
     return (
@@ -87,17 +87,16 @@ function Navbar() {
             <div className="flex justify-center items-center w-screen bg-primary-color-300 z-10 sm:border-t-8 sm:border-ascent-color-300 sm:border-b-white/20 sm:border-b">
                 <a
                     href="#home"
-                    className={`fixed z-20 text-ascent-color-300 bottom-24 sm:bottom-8 sm:left-8 animate-bounce transition ${
-                        arrowOpacity < 100
-                            ? arrowOpacity < 75
-                                ? arrowOpacity < 50
-                                    ? arrowOpacity < 25
-                                        ? 'opacity-0'
-                                        : 'opacity-25'
-                                    : 'opacity-50'
-                                : 'opacity-75'
-                            : 'opacity-100'
-                    }`}
+                    className={`fixed z-20 text-ascent-color-300 bottom-24 sm:bottom-8 sm:left-8 animate-bounce transition ${arrowOpacity < 100
+                        ? arrowOpacity < 75
+                            ? arrowOpacity < 50
+                                ? arrowOpacity < 25
+                                    ? 'opacity-0'
+                                    : 'opacity-25'
+                                : 'opacity-50'
+                            : 'opacity-75'
+                        : 'opacity-100'
+                        }`}
                 >
                     <BsFillArrowUpCircleFill size={20} />
                 </a>
@@ -122,53 +121,46 @@ function Navbar() {
                     <div className="flex justify-evenly w-full gap-4 items-center text-center max-sm:text-2xl">
                         <Link
                             href="/"
-                            className={`hover:text-ascent-color-300 flex flex-col justify-center items-center gap-2 max-sm:p-4 ${
-                                url[1] == '' && 'text-ascent-color-300'
-                            }`}
+                            className={`hover:text-ascent-color-300 flex flex-col justify-center items-center gap-2 max-sm:p-4 ${url[1] == '' && 'text-ascent-color-300'
+                                }`}
                         >
                             <AiFillHome className="sm:hidden" />
                             <p className="max-sm:hidden">Inicio</p>
                         </Link>
                         <Link
                             href="/casas"
-                            className={`hover:text-ascent-color-300 flex flex-col justify-center items-center gap-2 max-sm:p-4 ${
-                                url[1] == 'casas' && 'text-ascent-color-300'
-                            }`}
+                            className={`hover:text-ascent-color-300 flex flex-col justify-center items-center gap-2 max-sm:p-4 ${url[1] == 'casas' && 'text-ascent-color-300'
+                                }`}
                         >
                             <BsHousesFill className="sm:hidden" />
                             <p className="max-sm:hidden">Casas</p>
                         </Link>{' '}
                         <Link
                             href="/quem-somos"
-                            className={`hover:text-ascent-color-300 flex flex-col justify-center items-center gap-2 max-sm:p-4 ${
-                                url[1] == 'quem-somos' &&
+                            className={`hover:text-ascent-color-300 flex flex-col justify-center items-center gap-2 max-sm:p-4 ${url[1] == 'quem-somos' &&
                                 'text-ascent-color-300'
-                            }`}
+                                }`}
                         >
                             <BsFillPeopleFill className="sm:hidden" />
                             <p className="max-sm:hidden">Quem somos</p>
                         </Link>
                         <Link
                             href="/parceiros"
-                            className={`hover:text-ascent-color-300 flex flex-col justify-center items-center gap-2 max-sm:fixed top-2 right-2 max-sm:p-4 max-sm:text-lg transition ${
-                                url[1] == 'parceiros' && 'text-ascent-color-300'
-                            } ${
-                                menuIsOpen
+                            className={`hover:text-ascent-color-300 flex flex-col justify-center items-center gap-2 max-sm:fixed top-2 right-2 max-sm:p-4 max-sm:text-lg transition ${url[1] == 'parceiros' && 'text-ascent-color-300'
+                                } ${menuIsOpen
                                     ? 'translate-x-0'
                                     : 'max-sm:translate-x-full'
-                            }`}
+                                }`}
                         >
                             <p>Parceiros</p>
                         </Link>
                         <Link
                             href="/contato"
-                            className={`hover:text-ascent-color-300 flex flex-col justify-center items-center gap-2 max-sm:fixed top-10 right-2 max-sm:p-4 transition max-sm:text-lg ${
-                                url[1] == 'contato' && 'text-ascent-color-300'
-                            } ${
-                                menuIsOpen
+                            className={`hover:text-ascent-color-300 flex flex-col justify-center items-center gap-2 max-sm:fixed top-10 right-2 max-sm:p-4 transition max-sm:text-lg ${url[1] == 'contato' && 'text-ascent-color-300'
+                                } ${menuIsOpen
                                     ? 'translate-x-0'
                                     : 'max-sm:translate-x-full'
-                            }`}
+                                }`}
                         >
                             <p>Contato</p>
                         </Link>
@@ -208,11 +200,10 @@ function Navbar() {
                         </a>
                     </div>
                     <div
-                        className={`relative flex justify-center items-center max-lg:flex-col lg:gap-4 max-sm:fixed max-sm:bottom-16 max-sm:right-0  transition max-sm:rounded-t-lg max-sm:p-4 ${
-                            menuIsOpen
-                                ? 'translate-x-0'
-                                : 'max-sm:translate-x-full'
-                        }`}
+                        className={`relative flex justify-center items-center max-lg:flex-col lg:gap-4 max-sm:fixed max-sm:bottom-16 max-sm:right-0  transition max-sm:rounded-t-lg max-sm:p-4 ${menuIsOpen
+                            ? 'translate-x-0'
+                            : 'max-sm:translate-x-full'
+                            }`}
                     >
                         {userId && isLoaded ? (
                             <>
@@ -231,19 +222,20 @@ function Navbar() {
                                 </Button>
                             </>
                         )}
-                        <a href="/dashboard">
-                            <FiSettings
-                                className="hover:text-ascent-color-300"
-                                size={25}
-                            />
-                        </a>
+                        {userId && isLoaded ? (
+                            <a href="/dashboard">
+                                <FiSettings
+                                    className="hover:text-ascent-color-300"
+                                    size={25}
+                                />
+                            </a>
+                        ) : ""}
                     </div>
                 </div>
             </div>
             <div
-                className={`fixed sm:hidden bg-primary-color-300/50 backdrop-blur-lg top-0 right-0 bottom-0 left-1/2 z-20 transition border border-secondary-color-300 ${
-                    menuIsOpen ? 'translate-x-0' : 'max-sm:translate-x-full'
-                }`}
+                className={`fixed sm:hidden bg-primary-color-300/50 backdrop-blur-lg top-0 right-0 bottom-0 left-1/2 z-20 transition border border-secondary-color-300 ${menuIsOpen ? 'translate-x-0' : 'max-sm:translate-x-full'
+                    }`}
             ></div>
         </>
     )
