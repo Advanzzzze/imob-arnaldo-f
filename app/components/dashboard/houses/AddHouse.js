@@ -1,15 +1,40 @@
+import React, { useState } from 'react'
+import Button from '../../Button'
+import axios from 'axios'
 import uploadImage from '@/app/utils/uploadImage'
 import Image from 'next/image'
-import React from 'react'
-import { useState } from 'react'
+import { useForm } from 'react-hook-form'
+import { getAllHouses } from '@/api' // Importando a função getAllHouses
 
-function AddHouse({ setOpenModal }) {
+const AddHouse = ({ setOpenModal }) => {
+    const { register, handleSubmit, setValue, watch } = useForm()
     const [isTerrain, setIsTerrain] = useState(false)
-    const [images, setImages] = useState([])
 
-    function checkTerrain(value) {
-        if (value == 'terrain') setIsTerrain(true)
-        else setIsTerrain(false)
+    const onSubmit = async (data) => {
+        try {
+            await axios.post('/save-houses', {
+                data,
+            })
+            const houses = await getAllHouses()
+            console.log('Casas:', houses)
+            console.log('Dados do formulário:', data)
+        } catch (error) {
+            console.error('Erro ao enviar os dados:', error.message)
+        }
+    }
+
+    const handleImageUpload = async (e) => {
+        const file = e.target.files[0]
+        try {
+            const response = await uploadImage('', file)
+            setValue('images', [...watch('images'), response.image])
+        } catch (error) {
+            console.error('Erro ao enviar a imagem:', error)
+        }
+    }
+
+    const checkTerrain = (value) => {
+        setIsTerrain(value === 'terrain')
     }
 
     return (
@@ -26,24 +51,41 @@ function AddHouse({ setOpenModal }) {
                     X
                 </button>
                 <h2 className="font-semibold">Preencha os dados do imóvel</h2>
-                <form className="grid grid-cols-3 gap-4">
+                <form
+                    enctype="multipart/form-data"
+                    onSubmit={handleSubmit(onSubmit)}
+                    className="grid grid-cols-3 gap-4"
+                >
                     <div className="flex flex-col">
                         <label>Nome do Imóvel</label>
-                        <input placeholder="Chácara" type="text" />
+                        <input
+                            placeholder="Chácara"
+                            type="text"
+                            {...register('name')}
+                        />
                     </div>
                     <div className="flex flex-col">
                         <label>Cidade</label>
-                        <input placeholder="Araraquara - SP" type="text" />
+                        <input
+                            placeholder="Araraquara - SP"
+                            type="text"
+                            {...register('city')}
+                        />
                     </div>
                     <div className="flex flex-col">
                         <label>Bairro</label>
-                        <input placeholder="Maria Luiza V" type="text" />
+                        <input
+                            placeholder="Maria Luiza V"
+                            type="text"
+                            {...register('neighborhood')}
+                        />
                     </div>
                     <div className="flex flex-col">
                         <label>Endereço do Imóvel</label>
                         <input
                             placeholder="Rua Arnaldo Ferreira, 123"
                             type="text"
+                            {...register('address')}
                         />
                     </div>
                     <div className="flex flex-col">
@@ -51,13 +93,17 @@ function AddHouse({ setOpenModal }) {
                         <input
                             placeholder="02 DORMITÓRIOS, SALA, COZINHA, 01 BANHEIRO SOCIAL, EDÍCULA E 01 BANHEIRO NOS FUNDOS, E GARAGEM PARA 01 CARRO. "
                             type="text"
+                            {...register('description')}
                         />
                     </div>
                     <div className="flex flex-col">
                         <label>Tipo</label>
                         <select
-                            onChange={(data) => checkTerrain(data.target.value)}
-                            name="tipo"
+                            {...register('type')}
+                            onChange={(e) => {
+                                checkTerrain(e.target.value)
+                                setValue('type', e.target.value)
+                            }}
                         >
                             <option value="house">Casa</option>
                             <option value="apartment">Apartamento</option>
@@ -68,7 +114,12 @@ function AddHouse({ setOpenModal }) {
                         <>
                             <div className="flex flex-col">
                                 <label>Estágio</label>
-                                <select name="estagio">
+                                <select
+                                    {...register('stage')}
+                                    onChange={(e) =>
+                                        setValue('stage', e.target.value)
+                                    }
+                                >
                                     <option value="valor1">Planta</option>
                                     <option value="valor2">Construção</option>
                                     <option value="valor3">Pronto</option>
@@ -76,56 +127,44 @@ function AddHouse({ setOpenModal }) {
                             </div>
                             <div className="flex flex-col">
                                 <label>Quartos</label>
-                                <input type="text" />
+                                <input type="text" {...register('bedroom')} />
                             </div>
                             <div className="flex flex-col">
                                 <label>Suítes</label>
-                                <input type="text" />
+                                <input type="text" {...register('suites')} />
                             </div>
                             <div className="flex flex-col">
                                 <label>Banheiros</label>
-                                <input type="text" />
+                                <input type="text" {...register('bathroom')} />
                             </div>
                             <div className="flex flex-col">
                                 <label>Carros</label>
-                                <input type="text" />
+                                <input type="text" {...register('cars')} />
                             </div>
                         </>
                     )}
                     <div className="flex flex-col">
                         <label>{'Área (m²)'}</label>
-                        <input placeholder="28 a 33m²" type="text" />
+                        <input
+                            placeholder="28 a 33m²"
+                            type="text"
+                            {...register('area')}
+                        />
                     </div>
                     <div className="flex flex-col">
                         <label>Imagens do Imóvel</label>
                         <input
-                            onChange={(data) =>
-                                uploadImage('', data.target.files[0], (body) =>
-                                    setImages((images) => [
-                                        ...images,
-                                        body.image,
-                                    ])
-                                )
-                            }
                             type="file"
+                            multiple="multiple"
+                            accept="image/*"
+                            onChange={handleImageUpload}
+                            {...register('image')}
                         />
                     </div>
+                    <Button type="submit" onClick={handleSubmit(onSubmit)}>
+                        Adicionar
+                    </Button>
                 </form>
-                <div className="flex gap-4">
-                    {images.map((image, index) => (
-                        <div
-                            className="relative h-40 aspect-square"
-                            key={index}
-                        >
-                            <Image
-                                className="object-contain"
-                                fill
-                                src={image}
-                                alt="image"
-                            />
-                        </div>
-                    ))}
-                </div>
             </div>
         </div>
     )
